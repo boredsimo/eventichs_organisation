@@ -20,15 +20,15 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/btnRetourAcceuil"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Button" />
+                android:text="Retour" />
 
             <TextView
                 android:id="@+id/textView3"
-                android:layout_width="309dp"
+                android:layout_width="230dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
@@ -43,18 +43,23 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:enabled="false"
-                android:text="Button" />
+                android:text="Button"
+                android:visibility="invisible" />
         </LinearLayout>
 
         <ScrollView
+            android:id="@+id/scrollView2"
             android:layout_width="407dp"
             android:layout_height="735dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
+            android:clipToPadding="true"
+            android:scrollbarStyle="insideOverlay"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-            app:layout_constraintVertical_bias="0.942">
+            app:layout_constraintVertical_bias="0.75">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -83,10 +88,167 @@
                         android:layout_weight="1"
                         android:ems="10"
                         android:hint="Entrez le nom de l'évènement"
-                        android:inputType="text" />
+                        android:inputType="text"
+                        android:rotation="0"
+                        android:rotationX="0"
+                        android:rotationY="0" />
+
                 </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <Switch
+                        android:id="@+id/switch1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Évènement privé?"
+                        android:textAlignment="textStart"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textView7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Lieu de l'évènement"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/editTextText3"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="Entrez une addresse, ou choisissez avec la carte"
+                    android:inputType="text"
+                    android:rotation="0"
+                    android:rotationX="0"
+                    android:rotationY="0" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="285dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Belle grosse carte ici"
+                        android:textAlignment="center"
+                        android:textSize="60sp"
+                        android:textStyle="italic" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Description"
+                    android:textAlignment="center"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/editTextTextMultiLine"
+                    android:layout_width="match_parent"
+                    android:layout_height="117dp"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:gravity="start|top"
+                    android:hint="Entrez votre description ici"
+                    android:inputType="textMultiLine" />
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Date de début"
+                    android:textAlignment="center"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView11"
+                        android:layout_width="219dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="1er janvier 2023"
+                        android:textAlignment="center" />
+
+                    <Button
+                        android:id="@+id/btnDateDebut"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Choisir" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Date de fin"
+                    android:textAlignment="center"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView11"
+                        android:layout_width="219dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="1er janvier 2023"
+                        android:textAlignment="center" />
+
+                    <Button
+                        android:id="@+id/btnDateFin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Choisir" />
+
+                </LinearLayout>
+
             </LinearLayout>
         </ScrollView>
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="394dp"
+            android:layout_height="40dp"
+            android:enabled="false"
+            android:shadowColor="#000000"
+            android:shadowDx="5"
+            android:text="Continuer et créer"
+            android:translationZ="90dp"
+            app:layout_constraintBottom_toBottomOf="@+id/scrollView2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
