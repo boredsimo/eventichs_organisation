@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/acceuil">
+
+    <fragment
+        android:id="@+id/acceuil"
+        android:name="gti.g55.eventichs_organisation.Acceuil"
+        android:label="fragment_acceuil"
+        tools:layout="@layout/fragment_acceuil" >
+        <action
+            android:id="@+id/action_acceuil_to_evenement"
+            app:destination="@id/evenement" />
+    </fragment>
+    <fragment
+        android:id="@+id/evenement"
+        android:name="gti.g55.eventichs_organisation.Evenement"
+        android:label="fragment_evenement"
+        tools:layout="@layout/fragment_evenement" >
+        <action
+            android:id="@+id/action_evenement_to_acceuil"
+            app:destination="@id/acceuil" />
+    </fragment>
+</navigation>
