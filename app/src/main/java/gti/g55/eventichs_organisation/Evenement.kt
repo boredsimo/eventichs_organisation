@@ -43,5 +43,6 @@ class Evenement : Fragment() {
         //btnVersAcceuil.setOnClickListener {
             //Navigation.findNavController(view).navigate(R.id.action_evenement_to_acceuil)
         //}
+        // Im dumb
     }
 }
