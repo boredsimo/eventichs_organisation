@@ -21,6 +21,7 @@ private const val ARG_PARAM2 = "param2"
 class Acceuil : Fragment() {
     // TODO: Rename and change types of parameters
     lateinit var btnVersEcran2:Button
+    lateinit var btnVersCreationEvenement:Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +43,10 @@ class Acceuil : Fragment() {
         btnVersEcran2=view.findViewById(R.id.btnAcceuil)
         btnVersEcran2.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.action_acceuil_to_evenement)
+        }
+        btnVersCreationEvenement = view.findViewById(R.id.btnCréation)
+        btnVersCreationEvenement.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.action_acceuil_to_creerEvenement)
         }
     }
 }
