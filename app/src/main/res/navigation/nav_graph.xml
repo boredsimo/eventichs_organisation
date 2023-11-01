@@ -27,6 +27,11 @@
             app:destination="@id/acceuil" />
     </fragment>
     <fragment
+        android:id="@+id/ecranProfil"
+        android:name="gti.g55.eventichs_organisation.EcranProfil"
+        android:label="fragment_ecran_profil"
+        tools:layout="@layout/fragment_ecran_profil" /></fragment>
+<fragment
         android:id="@+id/creerEvenement"
         android:name="gti.g55.eventichs_organisation.CreerEvenement"
         android:label="fragment_creer"
