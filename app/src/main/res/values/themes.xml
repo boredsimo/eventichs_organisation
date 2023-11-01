@@ -3,7 +3,17 @@
     <style name="Base.Theme.Eventichs_organisation" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorButtonNormal">#ffffff</item>
     </style>
 
-    <style name="Theme.Eventichs_organisation" parent="Base.Theme.Eventichs_organisation" />
+    <style name="Theme.Eventichs_organisation" parent="Base.Theme.Eventichs_organisation">
+    </style>
+
+
+    <style name="CustomButtonStyle">
+        <item name="android:background">@drawable/white_with_black_border</item>
+        <item name="android:textColor">@android:color/white</item>
+        <!-- Add any other attributes you want to customize here -->
+    </style>
+
 </resources>
