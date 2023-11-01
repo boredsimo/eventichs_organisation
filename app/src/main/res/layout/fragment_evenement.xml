@@ -151,17 +151,20 @@
                         android:layout_weight="1"
                         android:text=""
                         android:layout_marginStart="12dp"
-                        android:background="@drawable/camera" />
+                        android:background="@drawable/camera"
+                        android:backgroundTint="@color/black"/>
 
                     <Button
                         android:id="@+id/button8"
                         android:layout_width="wrap_content"
                         android:layout_height="72dp"
                         android:layout_weight="5"
-                        android:backgroundTint="@color/white"
+                        android:layout_marginEnd="16dp"
                         android:text="Event 1"
-                        android:textColor="@color/black"
-                        app:cornerRadius="0dp" />
+                        android:background="@drawable/rounded"
+                        android:textColor="@color/white"
+                        app:cornerRadius="0dp"
+                        />
                 </LinearLayout>
 
                 <LinearLayout
@@ -183,20 +186,20 @@
                         android:layout_width="wrap_content"
                         android:layout_height="72dp"
                         android:layout_weight="5"
-                        android:backgroundTint="@color/white"
+                        android:backgroundTint="@color/black"
                         android:text="Event 2"
-                        android:textColor="@color/black"
+                        android:layout_marginEnd="16dp"
+                        android:textColor="@color/white"
                         app:cornerRadius="0dp" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.2"
+                    android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
                     <Button
-                        android:id="@+id/button11"
+                        android:id="@+id/button13"
                         android:layout_width="50dp"
                         android:layout_height="72dp"
                         android:layout_marginStart="12dp"
@@ -205,13 +208,41 @@
                         android:text="" />
 
                     <Button
-                        android:id="@+id/button12"
+                        android:id="@+id/button14"
                         android:layout_width="wrap_content"
                         android:layout_height="70dp"
                         android:layout_weight="5"
-                        android:backgroundTint="@color/white"
+                        android:backgroundTint="@color/black"
                         android:text="Event 3"
-                        android:textColor="@color/black"
+                        android:layout_marginEnd="16dp"
+                        android:textColor="@color/white"
+                        app:cornerRadius="0dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/button15"
+                        android:layout_width="50dp"
+                        android:layout_height="72dp"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/camera"
+                        android:text="" />
+
+                    <Button
+                        android:id="@+id/button16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="70dp"
+                        android:layout_weight="5"
+                        android:backgroundTint="@color/black"
+                        android:text="Event 4"
+                        android:layout_marginEnd="16dp"
+                        android:textColor="@color/white"
                         app:cornerRadius="0dp" />
                 </LinearLayout>
 

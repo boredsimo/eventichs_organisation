@@ -2,8 +2,13 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.Eventichs_organisation" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">#000000</item>
     </style>
 
     <style name="Theme.Eventichs_organisation" parent="Base.Theme.Eventichs_organisation" />
+
+    <style name="Button.Black" parent="ThemeOverlay.AppCompat">
+        <item name="colorAccent">@android:color/black</item>
+    </style>
+
 </resources>
