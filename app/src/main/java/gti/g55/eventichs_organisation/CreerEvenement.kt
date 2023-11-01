@@ -44,7 +44,7 @@ class CreerEvenement : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         btnVersAcceuil=view.findViewById(R.id.btnRetourAcceuil)
         btnVersAcceuil.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.action_creerEvenement_to_acceuil)
+            Navigation.findNavController(view).navigate(R.id.action_creerEvenement_to_evenement)
         }
     }
 

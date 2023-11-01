@@ -21,6 +21,9 @@ private const val ARG_PARAM2 = "param2"
 class Evenement : Fragment() {
     // TODO: Rename and change types of parameters
     //lateinit var btnVersAcceuil:Button
+    lateinit var btnVersProfil:Button
+    lateinit var btnVersCréerEvénement:Button
+    lateinit var btnVersDétailévénement:Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,10 +42,21 @@ class Evenement : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //btnVersAcceuil=view.findViewById(R.id.btnEvenement)
-        //btnVersAcceuil.setOnClickListener {
-            //Navigation.findNavController(view).navigate(R.id.action_evenement_to_acceuil)
-        //}
-        // Im dumb
+        btnVersProfil=view.findViewById(R.id.buttonVersProfil)
+        btnVersCréerEvénement=view.findViewById(R.id.bouttonVersCréer)
+        btnVersDétailévénement=view.findViewById(R.id.bouttonVersDétail)
+
+
+        btnVersProfil.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.action_evenement_to_ecranProfil)
+        }
+        btnVersCréerEvénement.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.action_evenement_to_creerEvenement)
+        }
+        btnVersDétailévénement.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.action_evenement_to_evenement_detail)
+        }
+
+
     }
 }

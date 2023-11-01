@@ -38,7 +38,7 @@
 
 
                         <Button
-                            android:id="@+id/button"
+                            android:id="@+id/buttonVersProfil"
                             android:layout_width="61dp"
                             android:layout_height="57dp"
                             android:layout_marginStart="8dp"
@@ -57,14 +57,14 @@
                             android:layout_marginTop="15dp"
                             android:layout_marginEnd="62dp"
                             android:layout_marginBottom="19dp"
-                            android:layout_toStartOf="@+id/button4"
-                            android:layout_toEndOf="@+id/button"
+                            android:layout_toStartOf="@+id/bouttonVersCréer"
+                            android:layout_toEndOf="@+id/buttonVersProfil"
                             android:gravity="center"
                             android:text="Eventichs"
                             android:textSize="32dp" />
 
                         <Button
-                            android:id="@+id/button4"
+                            android:id="@+id/bouttonVersCréer"
                             android:layout_width="54dp"
                             android:layout_height="57dp"
                             android:layout_alignParentEnd="true"
@@ -155,16 +155,15 @@
                         android:backgroundTint="@color/black"/>
 
                     <Button
-                        android:id="@+id/button8"
+                        android:id="@+id/bouttonVersDétail"
                         android:layout_width="wrap_content"
                         android:layout_height="72dp"
-                        android:layout_weight="5"
                         android:layout_marginEnd="16dp"
-                        android:text="Event 1"
+                        android:layout_weight="5"
                         android:background="@drawable/rounded"
+                        android:text="Événement 1"
                         android:textColor="@color/white"
-                        app:cornerRadius="0dp"
-                        />
+                        app:cornerRadius="0dp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -185,10 +184,10 @@
                         android:id="@+id/button10"
                         android:layout_width="wrap_content"
                         android:layout_height="72dp"
+                        android:layout_marginEnd="16dp"
                         android:layout_weight="5"
                         android:backgroundTint="@color/black"
-                        android:text="Event 2"
-                        android:layout_marginEnd="16dp"
+                        android:text="Événement 2"
                         android:textColor="@color/white"
                         app:cornerRadius="0dp" />
                 </LinearLayout>
