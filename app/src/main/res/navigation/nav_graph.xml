@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_acceuil_to_evenement"
             app:destination="@id/evenement" />
+        <action
+            android:id="@+id/action_acceuil_to_creerEvenement"
+            app:destination="@id/creerEvenement" />
     </fragment>
     <fragment
         android:id="@+id/evenement"
@@ -21,6 +24,15 @@
         tools:layout="@layout/fragment_evenement" >
         <action
             android:id="@+id/action_evenement_to_acceuil"
+            app:destination="@id/acceuil" />
+    </fragment>
+    <fragment
+        android:id="@+id/creerEvenement"
+        android:name="gti.g55.eventichs_organisation.CreerEvenement"
+        android:label="fragment_creer"
+        tools:layout="@layout/fragment_creer" >
+        <action
+            android:id="@+id/action_creerEvenement_to_acceuil"
             app:destination="@id/acceuil" />
     </fragment>
 </navigation>
