@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "gti.g55.eventichs_organisation"
-    compileSdk = 34
+    compileSdk = 33
 
     defaultConfig {
         applicationId = "gti.g55.eventichs_organisation"
