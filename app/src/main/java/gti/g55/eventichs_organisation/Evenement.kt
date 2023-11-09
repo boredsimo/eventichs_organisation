@@ -24,6 +24,7 @@ class Evenement : Fragment() {
     lateinit var btnVersProfil:Button
     lateinit var btnVersCréerEvénement:Button
     lateinit var btnVersDétailévénement:Button
+    lateinit var btnVersGoogleMaps: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,6 +46,7 @@ class Evenement : Fragment() {
         btnVersProfil=view.findViewById(R.id.buttonVersProfil)
         btnVersCréerEvénement=view.findViewById(R.id.bouttonVersCréer)
         btnVersDétailévénement=view.findViewById(R.id.bouttonVersDétail)
+        btnVersGoogleMaps = view.findViewById(R.id.goToMaps)
 
 
         btnVersProfil.setOnClickListener {
@@ -57,6 +59,9 @@ class Evenement : Fragment() {
             Navigation.findNavController(view).navigate(R.id.action_evenement_to_evenement_detail)
         }
 
+        btnVersGoogleMaps.setOnClickListener{
+            Navigation.findNavController(view).navigate(R.id.action_evenement_to_googleMapsFragment)
+        }
 
     }
 }

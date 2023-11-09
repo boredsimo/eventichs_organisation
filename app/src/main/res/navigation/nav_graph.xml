@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_evenement_to_evenement_detail"
             app:destination="@id/evenement_detail" />
+        <action
+            android:id="@+id/action_evenement_to_googleMapsFragment"
+            app:destination="@id/googleMapsFragment" />
     </fragment>
     <fragment
         android:id="@+id/ecranProfil"
@@ -47,4 +50,9 @@
             android:id="@+id/action_evenement_detail_to_evenement"
             app:destination="@id/evenement" />
     </fragment>
+    <fragment
+        android:id="@+id/googleMapsFragment"
+        android:name="gti.g55.eventichs_organisation.GoogleMapsFragment"
+        android:label="fragment_google_maps"
+        tools:layout="@layout/fragment_google_maps" />
 </navigation>
