@@ -81,7 +81,8 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="278dp"
+                android:gravity="center"
                 android:orientation="vertical">
 
                 <TextView
@@ -89,14 +90,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingStart="16dp"
+                    android:gravity="center"
                     android:text="Mes événements"
                     android:textSize="24dp" />
 
-                <ImageView
-                    android:id="@+id/imageView"
-                    android:layout_width="match_parent"
-                    android:layout_height="389dp"
-                    android:src="@drawable/map_template" />
+                <Button
+                    android:id="@+id/goToMaps"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Go to maps" />
 
             </LinearLayout>
 
