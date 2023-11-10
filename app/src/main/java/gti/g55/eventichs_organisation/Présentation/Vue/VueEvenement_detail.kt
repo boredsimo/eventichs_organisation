@@ -11,10 +11,10 @@ import gti.g55.eventichs_organisation.R
 
 /**
  * A simple [Fragment] subclass.
- * Use the [Evenement_detail.newInstance] factory method to
+ * Use the [VueEvenement_detail.newInstance] factory method to
  * create an instance of this fragment.
  */
-class Evenement_detail : Fragment() {
+class VueEvenement_detail : Fragment() {
     // TODO: Rename and change types of parameters
     lateinit var imagehome: ImageView
 
