@@ -1,17 +1,13 @@
-package gti.g55.eventichs_organisation
+package gti.g55.eventichs_organisation.Présentation.Vue
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+import gti.g55.eventichs_organisation.R
 
 /**
  * A simple [Fragment] subclass.
@@ -20,10 +16,9 @@ private const val ARG_PARAM2 = "param2"
  */
 class Evenement : Fragment() {
     // TODO: Rename and change types of parameters
-    //lateinit var btnVersAcceuil:Button
-    lateinit var btnVersProfil:Button
-    lateinit var btnVersCréerEvénement:Button
-    lateinit var btnVersDétailévénement:Button
+    lateinit var btnVersProfil: Button
+    lateinit var btnVersCréerEvénement: Button
+    lateinit var btnVersDétailévénement: Button
     lateinit var btnVersGoogleMaps: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,7 +42,6 @@ class Evenement : Fragment() {
         btnVersCréerEvénement=view.findViewById(R.id.bouttonVersCréer)
         btnVersDétailévénement=view.findViewById(R.id.bouttonVersDétail)
         btnVersGoogleMaps = view.findViewById(R.id.goToMaps)
-
 
         btnVersProfil.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.action_evenement_to_ecranProfil)
