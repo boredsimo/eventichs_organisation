@@ -15,7 +15,6 @@ import gti.g55.eventichs_organisation.R
  * create an instance of this fragment.
  */
 class VueEvenement : Fragment() {
-    // TODO: Rename and change types of parameters
     lateinit var btnVersProfil: Button
     lateinit var btnVersCréerEvénement: Button
     lateinit var btnVersDétailévénement: Button
@@ -40,7 +39,7 @@ class VueEvenement : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         btnVersProfil=view.findViewById(R.id.buttonVersProfil)
         btnVersCréerEvénement=view.findViewById(R.id.bouttonVersCréer)
-        btnVersDétailévénement=view.findViewById(R.id.bouttonVersDétail)
+        //btnVersDétailévénement=view.findViewById(R.id.bouttonVersDétail)
         btnVersGoogleMaps = view.findViewById(R.id.goToMaps)
 
         btnVersProfil.setOnClickListener {
