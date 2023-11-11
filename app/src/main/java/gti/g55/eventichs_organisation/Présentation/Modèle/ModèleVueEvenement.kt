@@ -8,7 +8,7 @@ class ModèleVueEvenement( val source: SourceÉvènement) {
 
 
 
-            fun ObtenirListeÉvènements(): List<Évènement>{
-                val
-            }
+            //fun ObtenirListeÉvènements(): List<Évènement>{
+
+            //}
 }

@@ -9,8 +9,9 @@ import android.widget.TextView
 import androidx.annotation.NonNull
 import androidx.recyclerview.widget.RecyclerView
 import gti.g55.eventichs_organisation.Domaine.Entités.Évènement
+import gti.g55.eventichs_organisation.Présentation.Vue.VueEvenement
 
-class RecyclerViewAdapteurEvenement(private val context: Context, private var dataEvenement: List<Évènement>) :
+class RecyclerViewAdapteurEvenement(private val context: VueEvenement, private var dataEvenement: List<Évènement>) :
     RecyclerView.Adapter<MyViewHolder>() {
 
     fun setSearchList(rechercheEvenement: List<Évènement>){
