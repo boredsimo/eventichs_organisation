@@ -11,10 +11,10 @@ import gti.g55.eventichs_organisation.R
 
 /**
  * A simple [Fragment] subclass.
- * Use the [Evenement.newInstance] factory method to
+ * Use the [VueEvenement.newInstance] factory method to
  * create an instance of this fragment.
  */
-class Evenement : Fragment() {
+class VueEvenement : Fragment() {
     // TODO: Rename and change types of parameters
     lateinit var btnVersProfil: Button
     lateinit var btnVersCréerEvénement: Button

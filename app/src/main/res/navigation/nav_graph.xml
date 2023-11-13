@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/evenement"
-        android:name="gti.g55.eventichs_organisation.Présentation.Vue.Evenement"
+        android:name="gti.g55.eventichs_organisation.Présentation.Vue.VueEvenement"
         android:label="fragment_evenement"
         tools:layout="@layout/fragment_evenement" >
         <action
@@ -43,7 +43,7 @@
 </fragment>
     <fragment
         android:id="@+id/evenement_detail"
-        android:name="gti.g55.eventichs_organisation.Présentation.Vue.Evenement_detail"
+        android:name="gti.g55.eventichs_organisation.Présentation.Vue.VueEvenement_detail"
         android:label="fragment_evenement_detail"
         tools:layout="@layout/fragment_evenement_detail" >
         <action

@@ -1,0 +1,23 @@
+package gti.g55.eventichs_organisation.Domaine.Interacteurs
+
+import gti.g55.eventichs_organisation.Domaine.Entités.Évènement
+
+class InteracteurAcquisitionÉvènement(var source: SourceÉvènement) {
+    private var _ListeÉvènement: ArrayList<Évènement> = ArrayList()
+
+    @get:Throws(ÉvènementException::class)
+    val évènement: ArrayList<Évènement>
+        get() = _ListeÉvènement ?: obtenirNouvelleListeÉvènement()
+
+
+    @Throws(ÉvènementException::class)
+    fun obtenirNouvelleListeÉvènement(): ArrayList<Évènement> {
+        var nouvelleListeÉvènement = source.récupérerListeÉvènements()
+        while (nouvelleListeÉvènement == _ListeÉvènement){
+            nouvelleListeÉvènement = source.récupérerListeÉvènements()
+            break
+        }
+        _ListeÉvènement = nouvelleListeÉvènement as ArrayList<Évènement>
+        return _ListeÉvènement
+    }
+}
