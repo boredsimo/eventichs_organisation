@@ -5,8 +5,11 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteOpenHelper
 import android.database.sqlite.SQLiteDatabase
-import gti.g55.eventichs_organisation.Présentation.Vue.Evenement
+import gti.g55.eventichs_organisation.Domaine.Entités.Évènement
+import gti.g55.eventichs_organisation.Domaine.Interacteurs.InteracteurAcquisitionÉvènement
+
 import gti.g55.eventichs_organisation.R
+import gti.g55.eventichs_organisation.sourceDeDonnées.SourceÉvènementBidon
 import java.text.SimpleDateFormat
 
 
@@ -23,7 +26,8 @@ class DatabaseHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME,
         private const val COLUMN_dateFin = "dateFin"
         private const val COLUMN_type = "Type"
         private const val COLUMN_description = "Description"
-        private const val COLUMN_photo = "Photo"
+        private const val COLUMN_IdOrganisation = "idOrganisation"
+        // private const val COLUMN_photo = "Photo"
         // Table Preference
         private const val TABLE_preference = "Preference"
         private const val COLUMN_idPreference = "idPreference"
@@ -33,7 +37,7 @@ class DatabaseHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME,
 
     override fun onCreate(db: SQLiteDatabase) {
         // Table Evenement
-        val CREATE_TABLE_Evenement = "CREATE TABLE $TABLE_evenement ($COLUMN_idEvenement INTEGER PRIMARY KEY AUTOINCREMENT, $COLUMN_dateDebut Date, $COLUMN_dateFin Date, $COLUMN_type Text, $COLUMN_description Text, $COLUMN_photo Text);"
+        val CREATE_TABLE_Evenement = "CREATE TABLE $TABLE_evenement ($COLUMN_idEvenement INTEGER PRIMARY KEY AUTOINCREMENT, $COLUMN_nomEvenement Text, $COLUMN_dateDebut Date, $COLUMN_dateFin Date, $COLUMN_type Text, $COLUMN_description Text, $COLUMN_IdOrganisation Integer);"
         db.execSQL(CREATE_TABLE_Evenement)
         // Table Preference
         val CREATE_TABLE_preference = "CREATE TABLE $TABLE_preference ($COLUMN_idPreference INTEGER PRIMARY KEY, $COLUMN_theme TEXT, $COLUMN_langue TEXT);"
@@ -53,14 +57,15 @@ class DatabaseHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME,
     fun creerEvenement(db: SQLiteDatabase) {
         @SuppressLint("SimpleDateFormat")
         var dateFormat = SimpleDateFormat("dd-MM-yyyy")
-        val listeEvenements = mutableListOf(
-            Evenement(),
-            Evenement(),
-            Evenement(),
-            Evenement()
-        )
+        val listeEvenements = InteracteurAcquisitionÉvènement(SourceÉvènementBidon()).obtenirNouvelleListeÉvènement()
+        val INSERT_TABLE_Evenement = "INSERT INTO $TABLE_evenement ($COLUMN_nomEvenement, $COLUMN_dateDebut, $COLUMN_dateFin, $COLUMN_description, $COLUMN_type, $COLUMN_IdOrganisation)" +
+                "VALUES (e.nom, e.dateDebut, e.dateFin, e.description, e.type, e.organisation_id)"
 
-        TODO("for (e in listeEvenements() {} ")
+        for (e in listeEvenements){
+            //is this right?
+            db.execSQL(INSERT_TABLE_Evenement)
+        }
+
     }
 
     // Fonction qui flush la database pour éliminer les événements stockés localement
