@@ -5,9 +5,9 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteOpenHelper
 import android.database.sqlite.SQLiteDatabase
+import android.preference.Preference
 import gti.g55.eventichs_organisation.Domaine.Entités.Évènement
 import gti.g55.eventichs_organisation.Domaine.Interacteurs.InteracteurAcquisitionÉvènement
-
 import gti.g55.eventichs_organisation.R
 import gti.g55.eventichs_organisation.sourceDeDonnées.SourceÉvènementBidon
 import java.text.SimpleDateFormat
@@ -28,6 +28,7 @@ class DatabaseHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME,
         private const val COLUMN_description = "Description"
         private const val COLUMN_IdOrganisation = "idOrganisation"
         // private const val COLUMN_photo = "Photo"
+
         // Table Preference
         private const val TABLE_preference = "Preference"
         private const val COLUMN_idPreference = "idPreference"
@@ -47,7 +48,6 @@ class DatabaseHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME,
         // creerPreference(db)
 
     }
-
     override fun onUpgrade(db: SQLiteDatabase, p1: Int, p2: Int) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_evenement)
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_preference)
@@ -71,7 +71,22 @@ class DatabaseHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME,
             valeur.put(COLUMN_IdOrganisation, e.organisation_id)
             db.execSQL(INSERT_TABLE_Evenement)
         }
+    }
+    fun ajouterEvenement(h: Évènement) {
+        val valeur = ContentValues()
+        valeur.put(COLUMN_nomEvenement, h.nom)
+        valeur.put(COLUMN_dateDebut, h.dateDebut)
+        valeur.put(COLUMN_dateFin, h.dateFin)
+        valeur.put(COLUMN_description, h.description)
+        valeur.put(COLUMN_type, h.type)
+        valeur.put(COLUMN_IdOrganisation, h.organisation_id)
+        val db = writableDatabase
+        db.insert(TABLE_evenement, null, valeur)
+        db.close()
+    }
 
+    fun creerPreference(db: SQLiteDatabase) {
+        // Mahf: Il faudra une classe Préférence pour les fonctions connectés aux préférences (langue, UI, etc)
     }
 
     // Fonction qui flush la database pour éliminer les événements stockés localement
