@@ -6,6 +6,7 @@ import android.content.Context
 import android.database.sqlite.SQLiteOpenHelper
 import android.database.sqlite.SQLiteDatabase
 import android.preference.Preference
+import gti.g55.eventichs_organisation.Domaine.Entités.Préférence
 import gti.g55.eventichs_organisation.Domaine.Entités.Évènement
 import gti.g55.eventichs_organisation.Domaine.Interacteurs.InteracteurAcquisitionÉvènement
 import gti.g55.eventichs_organisation.R
@@ -45,7 +46,7 @@ class DatabaseHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME,
         db.execSQL(CREATE_TABLE_preference)
 
         creerEvenement(db)
-        // creerPreference(db)
+        creerPreference(db)
 
     }
     override fun onUpgrade(db: SQLiteDatabase, p1: Int, p2: Int) {
@@ -85,8 +86,43 @@ class DatabaseHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME,
         db.close()
     }
 
+    fun modifierEvenement() {}
+
+    fun supprimerEvenement() {}
+
     fun creerPreference(db: SQLiteDatabase) {
-        // Mahf: Il faudra une classe Préférence pour les fonctions connectés aux préférences (langue, UI, etc)
+        val préférences = Préférence("Français", "Light")
+        val valeur = ContentValues()
+        valeur.put(COLUMN_langue, préférences.langue)
+        valeur.put(COLUMN_theme, préférences.thème)
+        db.insert(TABLE_preference, null, valeur)
+    }
+
+    fun ajouterPreference(h: Préférence) {
+        val valeur = ContentValues()
+        valeur.put(COLUMN_langue, h.langue)
+        valeur.put(COLUMN_theme, h.thème)
+        val db = writableDatabase
+        db.insert(TABLE_preference, null, valeur)
+        db.close()
+    }
+
+    fun rechercherPref(): Préférence {
+        lateinit var preference: Préférence
+        val db = readableDatabase
+        val cursor = db.rawQuery("SELECT * FROM $TABLE_preference LIMIT 1", null)
+        if (!cursor.moveToFirst())
+            preference = Préférence("Français", "Light")
+        else {
+            val langueIndex = cursor.getColumnIndex(COLUMN_langue)
+            val themeIndex = cursor.getColumnIndex(COLUMN_theme)
+            val langue = cursor.getString(langueIndex)
+            val theme = cursor.getString(themeIndex)
+            preference = Préférence(langue,theme)
+        }
+        cursor.close()
+        db.close()
+        return preference
     }
 
     // Fonction qui flush la database pour éliminer les événements stockés localement
