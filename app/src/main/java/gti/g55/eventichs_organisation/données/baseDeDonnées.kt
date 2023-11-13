@@ -37,7 +37,7 @@ class DatabaseHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME,
 
     override fun onCreate(db: SQLiteDatabase) {
         // Table Evenement
-        val CREATE_TABLE_Evenement = "CREATE TABLE $TABLE_evenement ($COLUMN_idEvenement INTEGER PRIMARY KEY AUTOINCREMENT, $COLUMN_nomEvenement Text, $COLUMN_dateDebut Date, $COLUMN_dateFin Date, $COLUMN_type Text, $COLUMN_description Text, $COLUMN_IdOrganisation Integer);"
+        val CREATE_TABLE_Evenement = "CREATE TABLE $TABLE_evenement ($COLUMN_idEvenement INTEGER PRIMARY KEY AUTOINCREMENT, $COLUMN_nomEvenement TEXT, $COLUMN_dateDebut Date, $COLUMN_dateFin Date, $COLUMN_type TEXT, $COLUMN_description TEXT, $COLUMN_IdOrganisation Integer);"
         db.execSQL(CREATE_TABLE_Evenement)
         // Table Preference
         val CREATE_TABLE_preference = "CREATE TABLE $TABLE_preference ($COLUMN_idPreference INTEGER PRIMARY KEY, $COLUMN_theme TEXT, $COLUMN_langue TEXT);"
@@ -58,11 +58,17 @@ class DatabaseHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME,
         @SuppressLint("SimpleDateFormat")
         var dateFormat = SimpleDateFormat("dd-MM-yyyy")
         val listeEvenements = InteracteurAcquisitionÉvènement(SourceÉvènementBidon()).obtenirNouvelleListeÉvènement()
-        val INSERT_TABLE_Evenement = "INSERT INTO $TABLE_evenement ($COLUMN_nomEvenement, $COLUMN_dateDebut, $COLUMN_dateFin, $COLUMN_description, $COLUMN_type, $COLUMN_IdOrganisation)" +
+        val INSERT_TABLE_Evenement = "INSERT INTO $TABLE_evenement ($COLUMN_nomEvenement, $COLUMN_dateDebut, $COLUMN_dateFin, $COLUMN_type, $COLUMN_description, $COLUMN_IdOrganisation)" +
                 "VALUES (e.nom, e.dateDebut, e.dateFin, e.description, e.type, e.organisation_id)"
 
         for (e in listeEvenements){
-            //is this right?
+            val valeur = ContentValues()
+            valeur.put(COLUMN_nomEvenement, e.nom)
+            valeur.put(COLUMN_dateDebut, e.dateDebut)
+            valeur.put(COLUMN_dateFin, e.dateFin)
+            valeur.put(COLUMN_description, e.description)
+            valeur.put(COLUMN_type, e.type)
+            valeur.put(COLUMN_IdOrganisation, e.organisation_id)
             db.execSQL(INSERT_TABLE_Evenement)
         }
 
