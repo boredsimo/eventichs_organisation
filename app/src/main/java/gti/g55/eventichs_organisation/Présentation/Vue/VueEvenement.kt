@@ -1,6 +1,7 @@
 package gti.g55.eventichs_organisation.Présentation.Vue
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -55,7 +56,7 @@ class VueEvenement : Fragment() {
         btnVersGoogleMaps = view.findViewById(R.id.goToMaps)
 
         recyclerView = view.findViewById(R.id.recyclerViewEvenements)
-        searchView = view.findViewById(R.id.search)
+        searchView = requireView().findViewById(R.id.search)
 
         btnVersProfil.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.action_evenement_to_ecranProfil)
@@ -97,15 +98,17 @@ class VueEvenement : Fragment() {
     // Recherche par nom
     private fun searchList(text: String) {
         val dataSearchÉvènement = mutableListOf<Évènement>()
-        for(évènement in dataSearchÉvènement){
-            if (évènement.nom.lowercase().contains(text.lowercase())){
+
+        for (évènement in dataEvenement) {
+            if (évènement.nom.lowercase().contains(text.lowercase())) {
                 dataSearchÉvènement.add(évènement)
             }
         }
 
-        if (!dataSearchÉvènement.isEmpty()){
+        if (dataSearchÉvènement.isNotEmpty()) {
+            recyclerAdapter.setSearchList(dataSearchÉvènement)
+        } else {
             recyclerAdapter.setSearchList(dataEvenement)
         }
-
     }
 }
