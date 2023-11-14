@@ -9,10 +9,10 @@ class ModèleVueEvenement( val source: SourceÉvènement) {
 
         var ListeÉvènementCourante: ArrayList<Évènement> = ArrayList()
 
-            fun ObtenirListeÉvènements(): List<Évènement>{
+            fun RemplacerListeÉvènements(): List<Évènement>{
                 Log.e("LOG", "OBTENIRLISTE GOT CALLED")
-                val nouvelleListeEvenement = InteracteurAcquisitionÉvènement(source).obtenirNouvelleListeÉvènement()
-                //ListeÉvènementCourante
+                var nouvelleListeEvenement = InteracteurAcquisitionÉvènement(source).obtenirNouvelleListeÉvènement()
+                ListeÉvènementCourante = nouvelleListeEvenement
 
                 return nouvelleListeEvenement
             }

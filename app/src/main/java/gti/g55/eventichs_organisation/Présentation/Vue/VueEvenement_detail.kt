@@ -27,6 +27,10 @@ class VueEvenement_detail : Fragment() {
     lateinit var imagehome: ImageView
     lateinit var textViewNom: TextView
     lateinit var versMaps:Button
+    lateinit var textDateDebut: TextView
+    lateinit var textDateFin: TextView
+    lateinit var textAdresse: TextView
+    lateinit var textDescription: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,6 +58,10 @@ class VueEvenement_detail : Fragment() {
         imagehome=view.findViewById(R.id.home)
         textViewNom = view.findViewById(R.id.nomEvent)
         versMaps=view.findViewById(R.id.verxmaps)
+        textDateDebut=view.findViewById(R.id.dateDebEvent)
+        textDateFin=view.findViewById(R.id.dateFinEvent)
+        textAdresse=view.findViewById(R.id.adresseEvent)
+        textDescription=view.findViewById(R.id.descriptionEvent)
 
 
         versMaps.setOnClickListener {
@@ -77,6 +85,22 @@ class VueEvenement_detail : Fragment() {
         var eventNom = selectedÉvènement?.nom
         if (eventNom != null){
             textViewNom.text = eventNom
+        }
+        var eventDateDebut = selectedÉvènement?.dateDebut
+        if (eventDateDebut != null){
+            textDateDebut.text = eventDateDebut
+        }
+        var eventDateFin = selectedÉvènement?.dateFin
+        if (eventDateFin != null) {
+            textDateFin.text = eventDateFin
+        }
+        var eventAdresse = selectedÉvènement?.addresse
+        if (eventAdresse != null){
+            textAdresse.text = eventAdresse
+        }
+        var eventDescription = selectedÉvènement?.description
+        if (eventDateDebut != null){
+            textDescription.text = eventDescription
         }
     }
 }
