@@ -15,6 +15,7 @@ import gti.g55.eventichs_organisation.R
 import gti.g55.eventichs_organisation.RecyclerViewAdapteurEvenement
 import gti.g55.eventichs_organisation.sourceDeDonnées.SourceÉvènementBidon
 import androidx.appcompat.widget.SearchView;
+import gti.g55.eventichs_organisation.evenementViewHolder
 
 /**
  * A simple [Fragment] subclass.
@@ -80,23 +81,21 @@ class VueEvenement : Fragment() {
 
             override fun onQueryTextChange(newText: String?): Boolean {
                 if (newText != null) {
-                    searchList(newText)
+                    //searchList(newText)
                 }
                 return true
             }
         })
 
-        val gridLayoutManager = GridLayoutManager(requireContext(), 1)
-        recyclerView.layoutManager = gridLayoutManager
-        dataEvenement = sourceBidon.récupérerListeÉvènements()
-        recyclerAdapter = RecyclerViewAdapteurEvenement(this, dataEvenement)
-        recyclerView.adapter = recyclerAdapter
+        afficherRecyclerView(sourceBidon.récupérerListeÉvènements())
+
+
 
     }
 
 
     // Recherche par nom
-    private fun searchList(text: String) {
+    /* private fun searchList(text: String) {
         val dataSearchÉvènement = mutableListOf<Évènement>()
 
         for (évènement in dataEvenement) {
@@ -110,5 +109,17 @@ class VueEvenement : Fragment() {
         } else {
             recyclerAdapter.setSearchList(dataEvenement)
         }
+
+        dataEvenement = sourceBidon.récupérerListeÉvènements()
+        afficherRecyclerView(dataEvenement)
+    }
+
+     */
+
+    fun afficherRecyclerView(dataEvenement: List<Évènement>){
+        val gridLayoutManager = GridLayoutManager(requireContext(), 1)
+        recyclerView.layoutManager = gridLayoutManager
+        recyclerAdapter = RecyclerViewAdapteurEvenement(dataEvenement, R.layout.recycler_item)
+        recyclerView.adapter = recyclerAdapter
     }
 }

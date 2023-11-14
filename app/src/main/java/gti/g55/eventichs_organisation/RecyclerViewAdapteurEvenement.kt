@@ -7,44 +7,33 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.annotation.LayoutRes
 import androidx.annotation.NonNull
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import gti.g55.eventichs_organisation.Domaine.Entités.Évènement
 import gti.g55.eventichs_organisation.Présentation.Vue.VueEvenement
 import gti.g55.eventichs_organisation.Présentation.Vue.VueEvenement_detail
+import gti.g55.eventichs_organisation.sourceDeDonnées.SourceÉvènementBidon
 
-class RecyclerViewAdapteurEvenement(private val context: VueEvenement, private var dataEvenement: List<Évènement>) :
-    RecyclerView.Adapter<MyViewHolder>() {
+class RecyclerViewAdapteurEvenement(var dataEvenement: List<Évènement>, @LayoutRes var layout: Int) :
+    RecyclerView.Adapter<evenementViewHolder>() {
 
-    fun setSearchList(rechercheEvenement: List<Évènement>){
-        this.dataEvenement = rechercheEvenement
-        notifyDataSetChanged()
-    }
-
-    @NonNull
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): evenementViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val view = inflater.inflate(R.layout.recycler_item, parent, false)
-        return MyViewHolder(view)
+        val view = inflater.inflate(layout, parent, false)
+        return evenementViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val unEvenement = dataEvenement[position]
-        holder.recTitle.text = unEvenement.nom
-        holder.recHeure.text = unEvenement.dateDebut
-
+    override fun onBindViewHolder(holder: evenementViewHolder, position: Int) {
+        holder.bindItem(dataEvenement[position])
     }
 
     override fun getItemCount(): Int {
         return dataEvenement.size
     }
-}
-
-class MyViewHolder(@NonNull itemView: View) : RecyclerView.ViewHolder(itemView) {
-    val recTitle: TextView = itemView.findViewById(R.id.recTitle)
-    val recHeure: TextView = itemView.findViewById(R.id.recHeure)
-    val evenementCarte: CardView = itemView.findViewById(R.id.evenementCard)
 }
