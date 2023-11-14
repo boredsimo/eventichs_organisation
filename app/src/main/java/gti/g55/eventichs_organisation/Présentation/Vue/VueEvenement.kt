@@ -1,6 +1,7 @@
 package gti.g55.eventichs_organisation.Présentation.Vue
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,10 +20,10 @@ import gti.g55.eventichs_organisation.R
 class VueEvenement : Fragment() {
     // TODO: Rename and change types of parameters
     private var _présenteur: PrésenteurEvenement? = null
-    lateinit var btnVersProfil: Button
-    lateinit var btnVersCréerEvénement: Button
-    lateinit var btnVersDétailévénement: Button
-    lateinit var btnVersGoogleMaps: Button
+    private var btnVersProfil: Button? = null
+    private var btnVersCréerEvénement: Button? = null
+    private var btnVersDétailévénement: Button? = null
+    private var btnVersGoogleMaps: Button? = null
 
     fun setPrésenteur(présenteurEvenement: PrésenteurEvenement?){
         _présenteur = présenteurEvenement
@@ -50,17 +51,18 @@ class VueEvenement : Fragment() {
         btnVersDétailévénement=vue.findViewById(R.id.bouttonVersDétail)
         btnVersGoogleMaps = vue.findViewById(R.id.goToMaps)
 
-        btnVersCréerEvénement.setOnClickListener {
+        Log.e("HEYO","aboutToCrash?")
+        btnVersCréerEvénement?.setOnClickListener {
             Navigation.findNavController(vue).navigate(R.id.action_evenement_to_creerEvenement)
         }
-        btnVersDétailévénement.setOnClickListener {
+        btnVersDétailévénement?.setOnClickListener {
             Navigation.findNavController(vue).navigate(R.id.action_evenement_to_evenement_detail)
         }
 
-        btnVersGoogleMaps.setOnClickListener{
+        btnVersGoogleMaps?.setOnClickListener{
             Navigation.findNavController(vue).navigate(R.id.action_evenement_to_googleMapsFragment)
         }
-        btnVersProfil.setOnClickListener {
+        btnVersProfil?.setOnClickListener {
             Navigation.findNavController(vue).navigate(R.id.action_evenement_to_ecranProfil)
         }
         _présenteur?.rafraichirListeÉvènements()
@@ -69,7 +71,7 @@ class VueEvenement : Fragment() {
 
     //TO BE RAPLACE -- ONCE WE GET ANDY'S RECYCLERVIEW
     fun remplacerÉvènementViaMVP(event: Évènement){
-        btnVersDétailévénement.setText(event.nom)
+        btnVersDétailévénement?.setText(event.nom)
     }
 
 

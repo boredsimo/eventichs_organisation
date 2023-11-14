@@ -19,12 +19,15 @@ class MainActivity : AppCompatActivity() {
 
         vue.setPrésenteur(_présenteur)
         val ft = supportFragmentManager.beginTransaction()
-        ft.add(R.id.AcceuilLayout, vue)
+        ft.add(R.id.nav_host_fragment, vue)
         ft.commit()
+
+
     }
 
     public override fun onStart() {
         super.onStart()
         _présenteur!!.rafraichirListeÉvènements()
+
     }
 }
