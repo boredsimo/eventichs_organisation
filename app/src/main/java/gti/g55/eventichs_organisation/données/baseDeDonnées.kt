@@ -12,6 +12,8 @@ import gti.g55.eventichs_organisation.Domaine.Interacteurs.InteracteurAcquisitio
 import gti.g55.eventichs_organisation.R
 import gti.g55.eventichs_organisation.sourceDeDonnées.SourceÉvènementBidon
 import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.util.Date
 
 
 class DatabaseHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION ) {
@@ -44,10 +46,8 @@ class DatabaseHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME,
         // Table Preference
         val CREATE_TABLE_preference = "CREATE TABLE $TABLE_preference ($COLUMN_idPreference INTEGER PRIMARY KEY, $COLUMN_theme TEXT, $COLUMN_langue TEXT);"
         db.execSQL(CREATE_TABLE_preference)
-
         creerEvenement(db)
         creerPreference(db)
-
     }
     override fun onUpgrade(db: SQLiteDatabase, p1: Int, p2: Int) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_evenement)
@@ -55,6 +55,7 @@ class DatabaseHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME,
         onCreate(db)
     }
 
+    // Création d'événements
     fun creerEvenement(db: SQLiteDatabase) {
         @SuppressLint("SimpleDateFormat")
         var dateFormat = SimpleDateFormat("dd-MM-yyyy")
@@ -73,6 +74,8 @@ class DatabaseHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME,
             db.execSQL(INSERT_TABLE_Evenement)
         }
     }
+
+    // Ajout d'événements
     fun ajouterEvenement(h: Évènement) {
         val valeur = ContentValues()
         valeur.put(COLUMN_nomEvenement, h.nom)
@@ -86,10 +89,30 @@ class DatabaseHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME,
         db.close()
     }
 
-    fun modifierEvenement() {}
+    // Modification des événements
+    fun modifierEvenement(idEvenement: Int, nomEvenement: String, dateDebut: LocalDate, dateFin: LocalDate, typeEvenement: String, descriptionEvenement: String, idOrganisation: Int ) {
+        val db = writableDatabase
+        db.execSQL("UPDATE $TABLE_evenement SET "+
+                "$COLUMN_idEvenement = '$idEvenement' WHERE $COLUMN_idEvenement = $idEvenement, "+
+                "$COLUMN_nomEvenement = '$nomEvenement' WHERE $COLUMN_nomEvenement = $nomEvenement, "+
+                "$COLUMN_dateDebut = '$dateDebut' WHERE $COLUMN_dateDebut = $dateDebut, "+
+                "$COLUMN_dateFin = '$dateFin' WHERE $COLUMN_dateFin = $dateFin, "+
+                "$COLUMN_type = '$typeEvenement' WHERE $COLUMN_type = $typeEvenement, "+
+                "$COLUMN_description = '$descriptionEvenement' WHERE $COLUMN_description = $descriptionEvenement, "+
+                "$COLUMN_IdOrganisation = '$idOrganisation' WHERE $COLUMN_IdOrganisation = $idOrganisation"
+        )
+        db.close()
+    }
 
-    fun supprimerEvenement() {}
+    // Suppression des événements
+    fun supprimerEvenement(idEvenement: Int) {
+        val db = writableDatabase
+        db.execSQL(
+            "DELETE FROM "+ TABLE_evenement + " WHERE " + COLUMN_idEvenement + "= \"" + idEvenement + "\";"
+        )
+    }
 
+    // Création des préférences
     fun creerPreference(db: SQLiteDatabase) {
         val préférences = Préférence("Français", "Light")
         val valeur = ContentValues()
@@ -98,6 +121,7 @@ class DatabaseHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME,
         db.insert(TABLE_preference, null, valeur)
     }
 
+    // Ajout de préférences
     fun ajouterPreference(h: Préférence) {
         val valeur = ContentValues()
         valeur.put(COLUMN_langue, h.langue)
@@ -107,6 +131,7 @@ class DatabaseHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME,
         db.close()
     }
 
+    // Recherche des préférences
     fun rechercherPref(): Préférence {
         lateinit var preference: Préférence
         val db = readableDatabase
