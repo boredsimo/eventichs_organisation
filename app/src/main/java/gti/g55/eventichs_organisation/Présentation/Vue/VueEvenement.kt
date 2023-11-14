@@ -30,13 +30,15 @@ class VueEvenement : Fragment() {
     //lateinit var btnVersDétailévénement: Button
     lateinit var btnVersGoogleMaps: Button
     lateinit var recyclerView: RecyclerView
+
+
+    //no data allowed :(
     lateinit var dataEvenement: List<Évènement>
     lateinit var recyclerAdapter: RecyclerViewAdapteurEvenement
     lateinit var unEvenement: Évènement
     lateinit var searchView: SearchView
 
     //DO NOT USE THIS IT WILL BE DELETED
-    val sourceBidon = SourceÉvènementBidon()
 
     fun setPrésenteur(présenteurEvenement: PrésenteurEvenement){
         _présenteur = présenteurEvenement
