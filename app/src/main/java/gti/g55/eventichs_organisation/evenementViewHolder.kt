@@ -1,5 +1,6 @@
 package gti.g55.eventichs_organisation
 
+import android.os.Bundle
 import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -20,16 +21,20 @@ class evenementViewHolder (@NonNull itemView: View) : RecyclerView.ViewHolder(it
     }
 
 
-    fun goToFragment(item: LinearLayout){
-        item.findNavController().navigate(R.id.action_evenement_to_evenement_detail)
+    fun goToFragment(item: LinearLayout,bundle:Bundle){
+        item.findNavController().navigate(R.id.action_evenement_to_evenement_detail,bundle)
     }
 
     fun bindItem(unEvenement: Évènement){
         recTitle.text = unEvenement.nom
         recHeure.text = unEvenement.dateDebut
+        val event = unEvenement
+        val bundle = Bundle().apply {
+            putParcelable("Évènement", event)
+        }
 
         item.setOnClickListener {
-            goToFragment(item)
+            goToFragment(item,bundle)
         }
     }
 }
