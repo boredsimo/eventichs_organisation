@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+import gti.g55.eventichs_organisation.Domaine.Entités.Évènement
+import gti.g55.eventichs_organisation.Présentation.Présenteur.PrésenteurEvenement
 import gti.g55.eventichs_organisation.R
 
 /**
@@ -16,46 +18,67 @@ import gti.g55.eventichs_organisation.R
  */
 class VueEvenement : Fragment() {
     // TODO: Rename and change types of parameters
+    private var _présenteur: PrésenteurEvenement? = null
     lateinit var btnVersProfil: Button
     lateinit var btnVersCréerEvénement: Button
     lateinit var btnVersDétailévénement: Button
     lateinit var btnVersGoogleMaps: Button
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-
-        }
+    fun setPrésenteur(présenteurEvenement: PrésenteurEvenement?){
+        _présenteur = présenteurEvenement
     }
+
+
+    //testing mvp dw about it
+//    override fun onCreate(savedInstanceState: Bundle?) {
+//        super.onCreate(savedInstanceState)
+//        arguments?.let {
+//
+//        }
+//    }
+
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_evenement, container, false)
-    }
+        val vue =  inflater.inflate(R.layout.fragment_evenement, container, false)
+        btnVersProfil=vue.findViewById(R.id.buttonVersProfil)
+        btnVersCréerEvénement=vue.findViewById(R.id.bouttonVersCréer)
+        btnVersCréerEvénement=vue.findViewById(R.id.bouttonVersCréer)
+        btnVersDétailévénement=vue.findViewById(R.id.bouttonVersDétail)
+        btnVersGoogleMaps = vue.findViewById(R.id.goToMaps)
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        btnVersProfil=view.findViewById(R.id.buttonVersProfil)
-        btnVersCréerEvénement=view.findViewById(R.id.bouttonVersCréer)
-        btnVersDétailévénement=view.findViewById(R.id.bouttonVersDétail)
-        btnVersGoogleMaps = view.findViewById(R.id.goToMaps)
-
-        btnVersProfil.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.action_evenement_to_ecranProfil)
-        }
         btnVersCréerEvénement.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.action_evenement_to_creerEvenement)
+            Navigation.findNavController(vue).navigate(R.id.action_evenement_to_creerEvenement)
         }
         btnVersDétailévénement.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.action_evenement_to_evenement_detail)
+            Navigation.findNavController(vue).navigate(R.id.action_evenement_to_evenement_detail)
         }
 
         btnVersGoogleMaps.setOnClickListener{
-            Navigation.findNavController(view).navigate(R.id.action_evenement_to_googleMapsFragment)
+            Navigation.findNavController(vue).navigate(R.id.action_evenement_to_googleMapsFragment)
         }
-
+        btnVersProfil.setOnClickListener {
+            Navigation.findNavController(vue).navigate(R.id.action_evenement_to_ecranProfil)
+        }
+        _présenteur?.rafraichirListeÉvènements()
+        return vue
     }
+
+    //TO BE RAPLACE -- ONCE WE GET ANDY'S RECYCLERVIEW
+    fun remplacerÉvènementViaMVP(event: Évènement){
+        btnVersDétailévénement.setText(event.nom)
+    }
+
+
+
+// testing mvp dw about it
+//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+//        super.onViewCreated(view, savedInstanceState)
+//
+//
+//    }
+
 }
