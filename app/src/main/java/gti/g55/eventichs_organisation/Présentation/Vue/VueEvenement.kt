@@ -1,20 +1,21 @@
 package gti.g55.eventichs_organisation.Présentation.Vue
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
-import gti.g55.eventichs_organisation.Domaine.Entités.Évènement
-import gti.g55.eventichs_organisation.Présentation.Présenteur.PrésenteurEvenement
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import gti.g55.eventichs_organisation.Domaine.Entités.Évènement
 import gti.g55.eventichs_organisation.R
 import gti.g55.eventichs_organisation.RecyclerViewAdapteurEvenement
 import gti.g55.eventichs_organisation.sourceDeDonnées.SourceÉvènementBidon
 import androidx.appcompat.widget.SearchView;
+import gti.g55.eventichs_organisation.Présentation.Présenteur.PrésenteurEvenement
 import gti.g55.eventichs_organisation.evenementViewHolder
 
 /**
@@ -23,52 +24,59 @@ import gti.g55.eventichs_organisation.evenementViewHolder
  * create an instance of this fragment.
  */
 class VueEvenement : Fragment() {
-    // TODO: Rename and change types of parameters
     private var _présenteur: PrésenteurEvenement? = null
-    private var btnVersProfil: Button? = null
-    private var btnVersCréerEvénement: Button? = null
-    //to be replaced
-    private var btnVersDétailévénement: Button? = null
-    private var btnVersGoogleMaps: Button? = null
-    private var recyclerView: RecyclerView? = null
-    private var dataEvenement: List<Évènement>? = null
-    private var recyclerAdapter: RecyclerViewAdapteurEvenement? = null
-    private var unEvenement: Évènement? = null
-    private var searchView: SearchView? = null
+    lateinit var btnVersProfil: Button
+    lateinit var btnVersCréerEvénement: Button
+    //lateinit var btnVersDétailévénement: Button
+    lateinit var btnVersGoogleMaps: Button
+    lateinit var recyclerView: RecyclerView
 
-    fun setPrésenteur(présenteurEvenement: PrésenteurEvenement?){
+
+    //no data allowed :(
+    lateinit var dataEvenement: List<Évènement>
+    lateinit var recyclerAdapter: RecyclerViewAdapteurEvenement
+    lateinit var unEvenement: Évènement
+    lateinit var searchView: SearchView
+
+    //DO NOT USE THIS IT WILL BE DELETED
+
+    fun setPrésenteur(présenteurEvenement: PrésenteurEvenement){
         _présenteur = présenteurEvenement
     }
-    
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        arguments?.let {
+
+        }
+    }
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val vue =  inflater.inflate(R.layout.fragment_evenement, container, false)
-        btnVersProfil=vue.findViewById(R.id.buttonVersProfil)
-        btnVersCréerEvénement=vue.findViewById(R.id.bouttonVersCréer)
-        btnVersCréerEvénement=vue.findViewById(R.id.bouttonVersCréer)
-        // to be replaced
-        btnVersDétailévénement=vue.findViewById(R.id.bouttonVersDétail)
-        btnVersGoogleMaps = vue.findViewById(R.id.goToMaps)
-        recyclerView = vue.findViewById(R.id.recyclerViewEvenements)
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_evenement, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        btnVersProfil=view.findViewById(R.id.buttonVersProfil)
+        btnVersCréerEvénement=view.findViewById(R.id.bouttonVersCréer)
+        btnVersGoogleMaps = view.findViewById(R.id.goToMaps)
+
+        recyclerView = view.findViewById(R.id.recyclerViewEvenements)
         searchView = requireView().findViewById(R.id.search)
 
-        btnVersCréerEvénement?.setOnClickListener {
-            Navigation.findNavController(vue).navigate(R.id.action_evenement_to_creerEvenement)
+        btnVersProfil.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.action_evenement_to_ecranProfil)
         }
-        btnVersDétailévénement?.setOnClickListener {
-            Navigation.findNavController(vue).navigate(R.id.action_evenement_to_evenement_detail)
-        }
-
-        btnVersProfil?.setOnClickListener {
-            Navigation.findNavController(vue).navigate(R.id.action_evenement_to_ecranProfil)
+        btnVersCréerEvénement.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.action_evenement_to_creerEvenement)
         }
 
-        btnVersGoogleMaps?.setOnClickListener{
-            Navigation.findNavController(vue).navigate(R.id.action_evenement_to_googleMapsFragment)
+        btnVersGoogleMaps.setOnClickListener{
+            Navigation.findNavController(view).navigate(R.id.action_evenement_to_googleMapsFragment)
         }
 
         searchView.clearFocus()
@@ -85,20 +93,10 @@ class VueEvenement : Fragment() {
             }
         })
 
-        dataEvenement = sourceBidon.récupérerListeÉvènements()
-        afficherRecyclerView(dataEvenement)
-
-
-
         _présenteur?.rafraichirListeÉvènements()
 
-        return vue
 
-    }
 
-    //TO BE RAPLACE -- ONCE WE GET ANDY'S RECYCLERVIEW
-    fun remplacerÉvènementViaMVP(event: Évènement){
-        btnVersDétailévénement?.setText(event.nom)
     }
 
     // Recherche par nom

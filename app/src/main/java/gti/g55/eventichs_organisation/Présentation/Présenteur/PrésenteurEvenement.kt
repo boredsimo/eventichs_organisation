@@ -57,7 +57,7 @@ class PrésenteurEvenement (private val _vue: VueEvenement, private val _modèle
                 super.handleMessage(msg)
                 filEsclave = null
                 if(msg.what == MSG_NOUVELLE_LISTE){
-                    _vue.remplacerÉvènementViaMVP(_modèle.ObtenirListeÉvènements()[0])
+                    _vue.afficherRecyclerView(_modèle.ObtenirListeÉvènements())
                 } else if (msg.what == MSG_ERREUR) {
                     Log.e("progcite", "Erreur d'accès à l'api", msg.obj as Throwable)
                 }
