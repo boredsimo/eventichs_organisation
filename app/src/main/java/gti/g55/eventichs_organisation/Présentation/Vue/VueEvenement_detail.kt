@@ -57,7 +57,7 @@ class VueEvenement_detail : Fragment() {
 
 
         versMaps.setOnClickListener {
-            val address = "6400 16e Avenue, Montréal QC H1X 2S9, Canada" // Replace with the desired address
+            val address = selectedÉvènement?.addresse // Replace with the desired address
             val encodedAddress = Uri.encode(address)
             val gmmIntentUri = "geo:0,0?q=$encodedAddress"
             val mapIntent = Intent(Intent.ACTION_VIEW, Uri.parse(gmmIntentUri))
