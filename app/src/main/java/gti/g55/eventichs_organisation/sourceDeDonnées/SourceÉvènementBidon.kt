@@ -10,9 +10,8 @@ class SourceÉvènementBidon : SourceÉvènement {
     override fun récupérerListeÉvènements(): List<Évènement> {
         var listeRetour: ArrayList<Évènement> = ArrayList()
 
-        while(listeRetour.size <= 10) {
-            when (Random.nextInt(7)) {
-                0 -> listeRetour.add(
+
+                 listeRetour.add(
                     Évènement(
                         1,
                         "Grève Générale Illimitée",
@@ -25,7 +24,7 @@ class SourceÉvènementBidon : SourceÉvènement {
                     )
                 )
 
-                1 -> listeRetour.add(
+                listeRetour.add(
                     Évènement(
                         2,
                         "Group de danse sensuelle dans la pluie",
@@ -38,7 +37,7 @@ class SourceÉvènementBidon : SourceÉvènement {
                     )
                 )
 
-                2 -> listeRetour.add(
+                listeRetour.add(
                     Évènement(
                         3,
                         "LIBÉRATION INCONDITIONNELLE DE LA PALESTINE",
@@ -51,7 +50,7 @@ class SourceÉvènementBidon : SourceÉvènement {
                     )
                 )
 
-                3 -> listeRetour.add(
+                listeRetour.add(
                     Évènement(
                         4,
                         "Pizza time avec Alexandros",
@@ -64,7 +63,7 @@ class SourceÉvènementBidon : SourceÉvènement {
                     )
                 )
 
-                4 -> listeRetour.add(
+                listeRetour.add(
                     Évènement(
                         5,
                         "Meatman's meat",
@@ -76,7 +75,7 @@ class SourceÉvènementBidon : SourceÉvènement {
                         1
                     )
                 )
-                5 -> listeRetour.add(
+                listeRetour.add(
                     Évènement(
                         5,
                         "Brunch avec des soldats qui ont du PTSD",
@@ -88,7 +87,7 @@ class SourceÉvènementBidon : SourceÉvènement {
                         1
                     )
                 )
-                6 -> listeRetour.add(
+                listeRetour.add(
                     Évènement(
                         5,
                         "Le pistolet de massage de Wissem",
@@ -100,7 +99,7 @@ class SourceÉvènementBidon : SourceÉvènement {
                         1
                     )
                 )
-                7 -> listeRetour.add(
+                listeRetour.add(
                     Évènement(
                         5,
                         "Joe's Bangers & Mash Grand Opening",
@@ -112,12 +111,18 @@ class SourceÉvènementBidon : SourceÉvènement {
                         1
                     )
                 )
-            }
-        }
-
-
+                listeRetour.add(
+                    Évènement(
+                        5,
+                        "SCRUM vs CRUD: Revenge of the Agiles",
+                        "31 Novembre 3021, 9:75am",
+                        "34 Novembre 3021: 11:00am",
+                        "Dans la cité numérique de Technopolis, SCRUM et CRUD se livrent une lutte acharnée. L'émergence d'Agile Fusion, mélangeant leurs forces, bouleverse tout. Cette alliance inattendue conduit à une révolution technologique, prouvant que l'union et l'innovation sont plus puissantes que la rivalité. Triomphe de l'agilité partagée.",
+                        "49.120262, -32.343221",
+                        "Public",
+                        1
+                    )
+                )
         return listeRetour
-
     }
-
 }
