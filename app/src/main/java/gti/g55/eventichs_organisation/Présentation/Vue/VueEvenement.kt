@@ -34,7 +34,10 @@ class VueEvenement : Fragment() {
     private var dataEvenement: List<Évènement>? = null
     private var recyclerAdapter: RecyclerViewAdapteurEvenement? = null
     private var unEvenement: Évènement? = null
-    private var searchView: SearchView? = null
+    lateinit var searchView: SearchView // Using private var completely breaks it
+
+    // TODO DELETE THIS AND REPLACE WITH ACTUAL MVP
+    val sourceBidon = SourceÉvènementBidon()
 
     fun setPrésenteur(présenteurEvenement: PrésenteurEvenement?){
         _présenteur = présenteurEvenement
@@ -51,10 +54,10 @@ class VueEvenement : Fragment() {
         btnVersCréerEvénement=vue.findViewById(R.id.bouttonVersCréer)
         btnVersCréerEvénement=vue.findViewById(R.id.bouttonVersCréer)
         // to be replaced
-        btnVersDétailévénement=vue.findViewById(R.id.bouttonVersDétail)
+        //btnVersDétailévénement=vue.findViewById(R.id.bouttonVersDétail)
         btnVersGoogleMaps = vue.findViewById(R.id.goToMaps)
         recyclerView = vue.findViewById(R.id.recyclerViewEvenements)
-        searchView = requireView().findViewById(R.id.search)
+        searchView = vue.findViewById(R.id.search)
 
         btnVersCréerEvénement?.setOnClickListener {
             Navigation.findNavController(vue).navigate(R.id.action_evenement_to_creerEvenement)
@@ -86,9 +89,7 @@ class VueEvenement : Fragment() {
         })
 
         dataEvenement = sourceBidon.récupérerListeÉvènements()
-        afficherRecyclerView(dataEvenement)
-
-
+        afficherRecyclerView(dataEvenement!!)
 
         _présenteur?.rafraichirListeÉvènements()
 
@@ -105,7 +106,7 @@ class VueEvenement : Fragment() {
     private fun searchList(text: String) {
         val dataSearchÉvènement = mutableListOf<Évènement>()
 
-        for (évènement in dataEvenement) {
+        for (évènement in dataEvenement!!) {
             if (évènement.nom.lowercase().contains(text.lowercase())) {
                 dataSearchÉvènement.add(évènement)
             }
@@ -116,8 +117,8 @@ class VueEvenement : Fragment() {
 
     fun afficherRecyclerView(dataEvenement: List<Évènement>){
         val gridLayoutManager = GridLayoutManager(requireContext(), 1)
-        recyclerView.layoutManager = gridLayoutManager
+        recyclerView?.layoutManager = gridLayoutManager
         recyclerAdapter = RecyclerViewAdapteurEvenement(dataEvenement, R.layout.recycler_item)
-        recyclerView.adapter = recyclerAdapter
+        recyclerView?.adapter = recyclerAdapter
     }
 }
