@@ -2,14 +2,19 @@ package gti.g55.eventichs_organisation
 
 
 import android.content.Context
+import android.content.Intent
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.annotation.NonNull
+import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import gti.g55.eventichs_organisation.Domaine.Entités.Évènement
 import gti.g55.eventichs_organisation.Présentation.Vue.VueEvenement
+import gti.g55.eventichs_organisation.Présentation.Vue.VueEvenement_detail
 
 class RecyclerViewAdapteurEvenement(private val context: VueEvenement, private var dataEvenement: List<Évènement>) :
     RecyclerView.Adapter<MyViewHolder>() {
@@ -31,7 +36,6 @@ class RecyclerViewAdapteurEvenement(private val context: VueEvenement, private v
         holder.recTitle.text = unEvenement.nom
         holder.recHeure.text = unEvenement.dateDebut
 
-        // TODO add on click listener for each recycler card
     }
 
     override fun getItemCount(): Int {
@@ -40,6 +44,7 @@ class RecyclerViewAdapteurEvenement(private val context: VueEvenement, private v
 }
 
 class MyViewHolder(@NonNull itemView: View) : RecyclerView.ViewHolder(itemView) {
-    var recTitle: TextView = itemView.findViewById(R.id.recTitle)
-    var recHeure: TextView = itemView.findViewById(R.id.recHeure)
+    val recTitle: TextView = itemView.findViewById(R.id.recTitle)
+    val recHeure: TextView = itemView.findViewById(R.id.recHeure)
+    val evenementCarte: CardView = itemView.findViewById(R.id.evenementCard)
 }
