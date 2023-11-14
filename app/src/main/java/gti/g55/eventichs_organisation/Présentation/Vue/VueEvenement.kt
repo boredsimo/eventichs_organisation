@@ -15,6 +15,7 @@ import gti.g55.eventichs_organisation.R
 import gti.g55.eventichs_organisation.RecyclerViewAdapteurEvenement
 import gti.g55.eventichs_organisation.sourceDeDonnées.SourceÉvènementBidon
 import androidx.appcompat.widget.SearchView;
+import gti.g55.eventichs_organisation.Présentation.Modèle.ModèleVueEvenement
 import gti.g55.eventichs_organisation.Présentation.Présenteur.PrésenteurEvenement
 import gti.g55.eventichs_organisation.evenementViewHolder
 
@@ -38,7 +39,6 @@ class VueEvenement : Fragment() {
     lateinit var unEvenement: Évènement
     lateinit var searchView: SearchView
 
-    //DO NOT USE THIS IT WILL BE DELETED
 
     fun setPrésenteur(présenteurEvenement: PrésenteurEvenement){
         _présenteur = présenteurEvenement
@@ -78,6 +78,13 @@ class VueEvenement : Fragment() {
         btnVersGoogleMaps.setOnClickListener{
             Navigation.findNavController(view).navigate(R.id.action_evenement_to_googleMapsFragment)
         }
+
+
+        val modèle = ModèleVueEvenement(SourceÉvènementBidon())
+        _présenteur = PrésenteurEvenement(this, modèle) // Assuming "this" refers to VueEvenement
+
+
+        setPrésenteur(_présenteur!!)
 
         searchView.clearFocus()
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
