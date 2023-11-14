@@ -28,7 +28,7 @@ class PrésenteurEvenement (private val _vue: VueEvenement, private val _modèle
             try {
                 Thread.sleep(0)
                 //THIS IS THE ACTUAL MVP INTERACTION, HERE, RIGHT HERE, BELOW
-                val nouvelleListeEvenement = _modèle.ObtenirListeÉvènements()
+                val nouvelleListeEvenement = _modèle.RemplacerListeÉvènements()
                 //If it worked, and it should, msg = 0 (success)
                 msg = handlerRéponse.obtainMessage(MSG_NOUVELLE_LISTE, nouvelleListeEvenement)
 
@@ -51,13 +51,26 @@ class PrésenteurEvenement (private val _vue: VueEvenement, private val _modèle
         }
     }
 
+    fun searchList(newText: String){
+        val dataSearchÉvènement = mutableListOf<Évènement>()
+
+        for (évènement in _modèle.ListeÉvènementCourante) {
+            if (évènement.nom.lowercase().contains(newText.lowercase())) {
+                dataSearchÉvènement.add(évènement)
+            }
+
+        }
+
+        _vue.afficherRecyclerView(dataSearchÉvènement)
+    }
+
     init {
         handlerRéponse = object : Handler(){
             override fun handleMessage(msg: Message) {
                 super.handleMessage(msg)
                 filEsclave = null
                 if(msg.what == MSG_NOUVELLE_LISTE){
-                    _vue.afficherRecyclerView(_modèle.ObtenirListeÉvènements())
+                    _vue.afficherRecyclerView(_modèle.RemplacerListeÉvènements())
                 } else if (msg.what == MSG_ERREUR) {
                     Log.e("progcite", "Erreur d'accès à l'api", msg.obj as Throwable)
                 }

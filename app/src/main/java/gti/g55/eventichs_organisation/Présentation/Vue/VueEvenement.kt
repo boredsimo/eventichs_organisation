@@ -81,7 +81,7 @@ class VueEvenement : Fragment() {
 
 
         val modèle = ModèleVueEvenement(SourceÉvènementBidon())
-        _présenteur = PrésenteurEvenement(this, modèle) // Assuming "this" refers to VueEvenement
+        _présenteur = PrésenteurEvenement(this, modèle)
 
 
         setPrésenteur(_présenteur!!)
@@ -94,7 +94,7 @@ class VueEvenement : Fragment() {
 
             override fun onQueryTextChange(newText: String?): Boolean {
                 if (newText != null) {
-                    searchList(newText)
+                    _présenteur!!.searchList(newText)
                 }
                 return true
             }
@@ -107,17 +107,19 @@ class VueEvenement : Fragment() {
     }
 
     // Recherche par nom
-    private fun searchList(text: String) {
-        val dataSearchÉvènement = mutableListOf<Évènement>()
 
-        for (évènement in dataEvenement) {
-            if (évènement.nom.lowercase().contains(text.lowercase())) {
-                dataSearchÉvènement.add(évènement)
-            }
-        }
-
-        afficherRecyclerView(dataSearchÉvènement)
-    }
+    //moved to présenteur
+//    private fun searchList(text: String) {
+//        val dataSearchÉvènement = mutableListOf<Évènement>()
+//
+//        for (évènement in dataEvenement) {
+//            if (évènement.nom.lowercase().contains(text.lowercase())) {
+//                dataSearchÉvènement.add(évènement)
+//            }
+//        }
+//
+//        afficherRecyclerView(dataSearchÉvènement)
+//    }
 
     fun afficherRecyclerView(dataEvenement: List<Évènement>){
         val gridLayoutManager = GridLayoutManager(requireContext(), 1)
