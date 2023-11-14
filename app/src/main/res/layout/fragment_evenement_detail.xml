@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/fragmentEventDetail"
     tools:context=".Présentation.Vue.VueEvenement_detail">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -333,26 +334,21 @@
                 android:padding="1dp"
                 android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/numPersonnesEvent"
+                <Button
+                    android:id="@+id/verxmaps"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="#FFFF"
-                    android:gravity="center_vertical"
-                    android:padding="10dp"
-                    android:text="Nombre de personnes intéressées"
-                    android:textColor="#000000"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:text="Voir la localisation" />
             </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/linearLayout2"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:orientation="horizontal"
             android:background="#000000"
+            android:orientation="vertical"
             android:padding="1dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -372,7 +368,9 @@
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
+
         </LinearLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
