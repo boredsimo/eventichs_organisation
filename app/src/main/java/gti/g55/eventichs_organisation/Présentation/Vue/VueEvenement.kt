@@ -81,13 +81,14 @@ class VueEvenement : Fragment() {
 
             override fun onQueryTextChange(newText: String?): Boolean {
                 if (newText != null) {
-                    //searchList(newText)
+                    searchList(newText)
                 }
                 return true
             }
         })
 
-        afficherRecyclerView(sourceBidon.récupérerListeÉvènements())
+        dataEvenement = sourceBidon.récupérerListeÉvènements()
+        afficherRecyclerView(dataEvenement)
 
 
 
@@ -95,7 +96,7 @@ class VueEvenement : Fragment() {
 
 
     // Recherche par nom
-    /* private fun searchList(text: String) {
+    private fun searchList(text: String) {
         val dataSearchÉvènement = mutableListOf<Évènement>()
 
         for (évènement in dataEvenement) {
@@ -104,17 +105,8 @@ class VueEvenement : Fragment() {
             }
         }
 
-        if (dataSearchÉvènement.isNotEmpty()) {
-            recyclerAdapter.setSearchList(dataSearchÉvènement)
-        } else {
-            recyclerAdapter.setSearchList(dataEvenement)
-        }
-
-        dataEvenement = sourceBidon.récupérerListeÉvènements()
-        afficherRecyclerView(dataEvenement)
+        afficherRecyclerView(dataSearchÉvènement)
     }
-
-     */
 
     fun afficherRecyclerView(dataEvenement: List<Évènement>){
         val gridLayoutManager = GridLayoutManager(requireContext(), 1)
