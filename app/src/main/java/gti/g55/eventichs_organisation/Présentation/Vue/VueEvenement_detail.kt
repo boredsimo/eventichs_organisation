@@ -57,12 +57,9 @@ class VueEvenement_detail : Fragment() {
 
 
         versMaps.setOnClickListener {
-            val latitude = 45.55730452222236
-            val longitude = -73.5822902031885
-            val label = selectedÉvènement?.nom
-
-
-            val gmmIntentUri = "geo:$latitude,$longitude?q=$latitude,$longitude($label)"
+            val address = "6400 16e Avenue, Montréal QC H1X 2S9, Canada" // Replace with the desired address
+            val encodedAddress = Uri.encode(address)
+            val gmmIntentUri = "geo:0,0?q=$encodedAddress"
             val mapIntent = Intent(Intent.ACTION_VIEW, Uri.parse(gmmIntentUri))
             mapIntent.setPackage("com.google.android.apps.maps")
 
