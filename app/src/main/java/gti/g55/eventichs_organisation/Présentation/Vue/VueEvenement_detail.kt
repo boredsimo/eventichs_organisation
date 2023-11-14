@@ -57,9 +57,10 @@ class VueEvenement_detail : Fragment() {
 
 
         versMaps.setOnClickListener {
-            val latitude = 45.55730452222236// specify the latitude of the location
-            val longitude = -73.5822902031885// specify the longitude of the location
-            val label = "Event Location" // specify the label for the location marker
+            val latitude = 45.55730452222236
+            val longitude = -73.5822902031885
+            val label = selectedÉvènement?.nom
+
 
             val gmmIntentUri = "geo:$latitude,$longitude?q=$latitude,$longitude($label)"
             val mapIntent = Intent(Intent.ACTION_VIEW, Uri.parse(gmmIntentUri))
@@ -68,7 +69,6 @@ class VueEvenement_detail : Fragment() {
             if (mapIntent.resolveActivity(requireActivity().packageManager) != null) {
                 startActivity(mapIntent)
             } else {
-                // Handle the case where Google Maps is not installed on the device
                 Toast.makeText(requireContext(), "Google Maps is not installed", Toast.LENGTH_SHORT).show()
             }
         }
@@ -81,9 +81,5 @@ class VueEvenement_detail : Fragment() {
         if (eventNom != null){
             textViewNom.text = eventNom
         }
-
-
-
-
     }
 }
