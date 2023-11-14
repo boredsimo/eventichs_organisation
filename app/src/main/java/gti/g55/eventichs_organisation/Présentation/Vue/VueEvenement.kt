@@ -15,6 +15,7 @@ import gti.g55.eventichs_organisation.R
 import gti.g55.eventichs_organisation.RecyclerViewAdapteurEvenement
 import gti.g55.eventichs_organisation.sourceDeDonnées.SourceÉvènementBidon
 import androidx.appcompat.widget.SearchView;
+import gti.g55.eventichs_organisation.Présentation.Présenteur.PrésenteurEvenement
 import gti.g55.eventichs_organisation.evenementViewHolder
 
 /**
@@ -23,6 +24,7 @@ import gti.g55.eventichs_organisation.evenementViewHolder
  * create an instance of this fragment.
  */
 class VueEvenement : Fragment() {
+    private var _présenteur: PrésenteurEvenement? = null
     lateinit var btnVersProfil: Button
     lateinit var btnVersCréerEvénement: Button
     //lateinit var btnVersDétailévénement: Button
@@ -32,7 +34,13 @@ class VueEvenement : Fragment() {
     lateinit var recyclerAdapter: RecyclerViewAdapteurEvenement
     lateinit var unEvenement: Évènement
     lateinit var searchView: SearchView
+
+    //DO NOT USE THIS IT WILL BE DELETED
     val sourceBidon = SourceÉvènementBidon()
+
+    fun setPrésenteur(présenteurEvenement: PrésenteurEvenement){
+        _présenteur = présenteurEvenement
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -87,13 +95,20 @@ class VueEvenement : Fragment() {
             }
         })
 
+        //NOOOO ITS NOT MVP AAAAARGHHH
         dataEvenement = sourceBidon.récupérerListeÉvènements()
+
         afficherRecyclerView(dataEvenement)
+        _présenteur?.rafraichirListeÉvènements()
 
 
 
     }
 
+    //TO BE RAPLACE -- ONCE WE GET ANDY'S RECYCLERVIEW
+    fun remplacerÉvènementViaMVP(event: Évènement){
+        //this will do something I promise
+    }
 
     // Recherche par nom
     private fun searchList(text: String) {
