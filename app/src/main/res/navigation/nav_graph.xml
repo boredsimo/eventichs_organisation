@@ -49,6 +49,9 @@
         <action
             android:id="@+id/action_evenement_detail_to_evenement"
             app:destination="@id/evenement" />
+        <action
+            android:id="@+id/action_evenement_detail_to_creerEvenement"
+            app:destination="@id/creerEvenement" />
     </fragment>
     <fragment
         android:id="@+id/googleMapsFragment"

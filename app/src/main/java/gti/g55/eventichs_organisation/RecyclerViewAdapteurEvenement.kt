@@ -2,16 +2,25 @@ package gti.g55.eventichs_organisation
 
 
 import android.content.Context
+import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.annotation.NonNull
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentManager
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import gti.g55.eventichs_organisation.Domaine.Entités.Évènement
 import gti.g55.eventichs_organisation.Présentation.Vue.VueEvenement
+import gti.g55.eventichs_organisation.Présentation.Vue.VueEvenement_detail
 
-class RecyclerViewAdapteurEvenement(private val context: VueEvenement, private var dataEvenement: List<Évènement>) :
+class RecyclerViewAdapteurEvenement(private val context: VueEvenement,
+                                    private var dataEvenement: List<Évènement>) :
+
     RecyclerView.Adapter<MyViewHolder>() {
 
     fun setSearchList(rechercheEvenement: List<Évènement>){
@@ -28,11 +37,27 @@ class RecyclerViewAdapteurEvenement(private val context: VueEvenement, private v
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val unEvenement = dataEvenement[position]
-        holder.recTitle.text = unEvenement.nom
-        holder.recHeure.text = unEvenement.dateDebut
+        holder.bind(unEvenement)
+        holder.itemView.setOnClickListener {
 
-        // TODO add on click listener for each recycler card
+
+                val activity = it.context as AppCompatActivity
+                val fragmentDetail = VueEvenement_detail()
+
+                // Log the message
+                Log.d("YourTag", "Item at position 1 clicked")
+                val bundle=Bundle()
+                bundle.putString("nomevent",dataEvenement[position].nom)
+
+                // Replace fragment
+            activity.supportFragmentManager.beginTransaction()
+                    .replace(R.id.rec, fragmentDetail)
+                    .addToBackStack(null)
+                    .commit()
+
+        }
     }
+
 
     override fun getItemCount(): Int {
         return dataEvenement.size
@@ -42,4 +67,8 @@ class RecyclerViewAdapteurEvenement(private val context: VueEvenement, private v
 class MyViewHolder(@NonNull itemView: View) : RecyclerView.ViewHolder(itemView) {
     var recTitle: TextView = itemView.findViewById(R.id.recTitle)
     var recHeure: TextView = itemView.findViewById(R.id.recHeure)
+    fun bind(item:Évènement){
+        recTitle.text=item.nom
+        recHeure.text=item.dateDebut
+    }
 }

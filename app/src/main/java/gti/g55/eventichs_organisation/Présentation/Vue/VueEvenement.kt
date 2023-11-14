@@ -1,5 +1,6 @@
 package gti.g55.eventichs_organisation.Présentation.Vue
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -52,7 +53,6 @@ class VueEvenement : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         btnVersProfil=view.findViewById(R.id.buttonVersProfil)
         btnVersCréerEvénement=view.findViewById(R.id.bouttonVersCréer)
-        //btnVersDétailévénement=view.findViewById(R.id.bouttonVersDétail)
         btnVersGoogleMaps = view.findViewById(R.id.goToMaps)
 
         recyclerView = view.findViewById(R.id.recyclerViewEvenements)
@@ -64,10 +64,6 @@ class VueEvenement : Fragment() {
         btnVersCréerEvénement.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.action_evenement_to_creerEvenement)
         }
-        //btnVersDétailévénement.setOnClickListener {
-           // Navigation.findNavController(view).navigate(R.id.action_evenement_to_evenement_detail)
-        //}
-
         btnVersGoogleMaps.setOnClickListener{
             Navigation.findNavController(view).navigate(R.id.action_evenement_to_googleMapsFragment)
         }
@@ -92,6 +88,7 @@ class VueEvenement : Fragment() {
         recyclerAdapter = RecyclerViewAdapteurEvenement(this, dataEvenement)
         recyclerView.adapter = recyclerAdapter
 
+
     }
 
 
@@ -111,4 +108,6 @@ class VueEvenement : Fragment() {
             recyclerAdapter.setSearchList(dataEvenement)
         }
     }
+
+
 }

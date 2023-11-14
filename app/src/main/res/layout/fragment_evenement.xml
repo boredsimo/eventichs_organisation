@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rec"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Présentation.Vue.VueEvenement">
@@ -41,8 +42,8 @@
                             android:id="@+id/buttonVersProfil"
                             android:layout_width="61dp"
                             android:layout_height="57dp"
-                            android:layout_marginStart="8dp"
                             android:layout_alignParentBottom="true"
+                            android:layout_marginStart="8dp"
                             android:layout_marginBottom="8dp"
                             android:background="@drawable/menu_hamburger"
                             android:text="" />
@@ -86,7 +87,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView2"
+                    android:id="@+id/Titre"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -121,20 +122,18 @@
             </LinearLayout>
 
 
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewEvenements"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/recyclerViewEvenements"
-                    android:layout_marginTop="8dp"
-                    android:scrollbars="vertical"
                     android:layout_below="@id/search"
-                    />
+                    android:layout_marginTop="8dp"
+                    android:scrollbars="vertical" />
 
             </LinearLayout>
 
