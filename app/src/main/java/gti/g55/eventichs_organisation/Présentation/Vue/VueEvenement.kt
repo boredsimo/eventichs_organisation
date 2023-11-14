@@ -63,7 +63,6 @@ class VueEvenement : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         btnVersProfil=view.findViewById(R.id.buttonVersProfil)
         btnVersCréerEvénement=view.findViewById(R.id.bouttonVersCréer)
-        //btnVersDétailévénement=view.findViewById(R.id.bouttonVersDétail)
         btnVersGoogleMaps = view.findViewById(R.id.goToMaps)
 
         recyclerView = view.findViewById(R.id.recyclerViewEvenements)
@@ -75,9 +74,6 @@ class VueEvenement : Fragment() {
         btnVersCréerEvénement.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.action_evenement_to_creerEvenement)
         }
-        //btnVersDétailévénement.setOnClickListener {
-           // Navigation.findNavController(view).navigate(R.id.action_evenement_to_evenement_detail)
-        //}
 
         btnVersGoogleMaps.setOnClickListener{
             Navigation.findNavController(view).navigate(R.id.action_evenement_to_googleMapsFragment)
@@ -97,19 +93,10 @@ class VueEvenement : Fragment() {
             }
         })
 
-        //NOOOO ITS NOT MVP AAAAARGHHH
-        dataEvenement = sourceBidon.récupérerListeÉvènements()
-
-        afficherRecyclerView(dataEvenement)
         _présenteur?.rafraichirListeÉvènements()
 
 
 
-    }
-
-    //TO BE RAPLACE -- ONCE WE GET ANDY'S RECYCLERVIEW
-    fun remplacerÉvènementViaMVP(event: Évènement){
-        //this will do something I promise
     }
 
     // Recherche par nom
