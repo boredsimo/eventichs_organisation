@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
 //        val vue  = VueEvenement()
 //        _présenteur = PrésenteurEvenement(vue, modèle)
 //
-//        vue.setPrésenteur(_présenteur!!)
+          //vue.setPrésenteur(_présenteur!!)
 //        val ft = supportFragmentManager.beginTransaction()
 //        ft.add(R.id.nav_host_fragment, vue)
 //        ft.commit()
