@@ -11,7 +11,7 @@ class SourceÉvènementBidon : SourceÉvènement {
         var listeRetour: ArrayList<Évènement> = ArrayList()
 
         while(listeRetour.size <= 10) {
-            when (Random.nextInt(4)) {
+            when (Random.nextInt(7)) {
                 0 -> listeRetour.add(
                     Évènement(
                         1,
@@ -76,7 +76,42 @@ class SourceÉvènementBidon : SourceÉvènement {
                         1
                     )
                 )
-
+                5 -> listeRetour.add(
+                    Évènement(
+                        5,
+                        "Brunch avec des soldats qui ont du PTSD",
+                        "9 Mai 2024",
+                        "9 Mai 2024",
+                        "Écoutez aux histoires traumatisantes et perturbantes de nos vétérans, tout en réjouissant à des bons petits sandwichs!",
+                        "1 Notre-Dame St W, Montreal, Quebec H2Y 1S5, Canada",
+                        "Public",
+                        1
+                    )
+                )
+                6 -> listeRetour.add(
+                    Évènement(
+                        5,
+                        "Le pistolet de massage de Wissem",
+                        "20 Décembre 2023",
+                        "31 Décembre 2023",
+                        "Veuillez venir visionner le chef-d'oeuvre du grand réalisateur Wissem au Cinéma Cineplex Odeon Quartier Latin!!!",
+                        "350 Rue Émery, Montréal, QC H2X 1J1m, Canada",
+                        "Public",
+                        1
+                    )
+                )
+                7 -> listeRetour.add(
+                    Évènement(
+                        5,
+                        "Joe's Bangers & Mash Grand Opening",
+                        "30 Mars 1922",
+                        "31 Mars 1922",
+                        "C'est la grande ouverture de 'Joe's Bangers & Mash!' Essayez les saucisses de Joe! Les hot-dogs de Joe! La viande de Joe! Pour tout le monde!",
+                        "6400 16e Avenue, Montréal, QC H1X 2S9, Canada",
+                        "Public",
+                        1
+                    )
+                )
             }
         }
 

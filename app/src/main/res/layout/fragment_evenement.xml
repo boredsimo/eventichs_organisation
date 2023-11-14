@@ -45,8 +45,9 @@
                             android:layout_marginStart="8dp"
                             android:layout_alignParentBottom="true"
                             android:layout_marginBottom="8dp"
-                            android:background="@drawable/menu_hamburger"
+                            android:background="@android:color/transparent"
                             android:text="" />
+<!--                        android:background="@drawable/menu_hamburger"-->
 
                         <TextView
                             android:id="@+id/textView4"
