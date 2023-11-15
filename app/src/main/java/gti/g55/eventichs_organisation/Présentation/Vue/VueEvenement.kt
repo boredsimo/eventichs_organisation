@@ -1,7 +1,6 @@
 package gti.g55.eventichs_organisation.Présentation.Vue
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,12 +11,11 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import gti.g55.eventichs_organisation.Domaine.Entités.Évènement
 import gti.g55.eventichs_organisation.R
-import gti.g55.eventichs_organisation.RecyclerViewAdapteurEvenement
+import gti.g55.eventichs_organisation.Présentation.Présenteur.RecyclerViewAdapteurEvenement
 import gti.g55.eventichs_organisation.sourceDeDonnées.SourceÉvènementBidon
 import androidx.appcompat.widget.SearchView;
 import gti.g55.eventichs_organisation.Présentation.Modèle.ModèleVueEvenement
 import gti.g55.eventichs_organisation.Présentation.Présenteur.PrésenteurEvenement
-import gti.g55.eventichs_organisation.evenementViewHolder
 
 /**
  * A simple [Fragment] subclass.
