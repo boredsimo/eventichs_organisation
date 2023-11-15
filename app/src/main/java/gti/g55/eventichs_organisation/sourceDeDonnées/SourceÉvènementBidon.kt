@@ -9,8 +9,6 @@ class SourceÉvènementBidon : SourceÉvènement {
 
     override fun récupérerListeÉvènements(): List<Évènement> {
         var listeRetour: ArrayList<Évènement> = ArrayList()
-
-
                  listeRetour.add(
                     Évènement(
                         1,
