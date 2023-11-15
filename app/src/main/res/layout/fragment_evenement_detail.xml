@@ -51,7 +51,7 @@
                     android:layout_marginTop="16dp"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="EVENTICHS"
+                    android:text="Eventichs"
                     android:textColor="#000000"
                     android:textSize="30sp"
                     android:textStyle="bold|italic"
@@ -127,15 +127,33 @@
                 android:background="#FFFF"
                 android:orientation="horizontal">
 
-                <ImageView
-                    android:id="@+id/calendar1"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:srcCompat="@drawable/baseline_calendar_today_24" />
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/calendar1"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center|top"
+                        android:layout_weight="1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:srcCompat="@drawable/baseline_calendar_today_24" />
+
+                    <TextView
+                        android:id="@+id/textView19"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Date Début"
+                        android:textColor="#000000" />
+
+                </LinearLayout>
+
             </LinearLayout>
 
             <LinearLayout
@@ -161,15 +179,33 @@
                 android:background="#FFFF"
                 android:orientation="horizontal">
 
-                <ImageView
-                    android:id="@+id/calendar2"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:srcCompat="@drawable/baseline_calendar_today_24" />
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/calendar2"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center|top"
+                        android:layout_weight="1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:srcCompat="@drawable/baseline_calendar_today_24" />
+
+                    <TextView
+                        android:id="@+id/textView20"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:text="Date Fin"
+                        android:textColor="#000000" />
+
+                </LinearLayout>
+
             </LinearLayout>
 
             <LinearLayout
