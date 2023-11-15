@@ -19,7 +19,7 @@ import java.io.IOException
 
 class GoogleMapsFragment : Fragment() {
 
-    private var zoomLevel = 15f
+    private var zoomLevel = 11f
 
     private val callback = OnMapReadyCallback { googleMap ->
         /**
@@ -32,7 +32,7 @@ class GoogleMapsFragment : Fragment() {
          * user has installed Google Play services and returned to the app.
          */
 
-        // To replace
+        // To replace to format MVP
         val sourceBidon = SourceÉvènementBidon()
         val events = sourceBidon.récupérerListeÉvènements()
 
@@ -45,9 +45,8 @@ class GoogleMapsFragment : Fragment() {
             }
         }
 
-        val rosemont = LatLng(45.55730452222236, -73.5822902031885)
-        googleMap.addMarker(MarkerOptions().position(rosemont).title("Collège de Rosemont"))
-        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(rosemont, zoomLevel))
+        val montreal = LatLng(45.50191163465637, -73.56739916710052)
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(montreal, zoomLevel))
     }
 
     override fun onCreateView(
