@@ -7,6 +7,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import androidx.navigation.Navigation
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -20,6 +22,7 @@ import java.io.IOException
 class GoogleMapsFragment : Fragment() {
 
     private var zoomLevel = 11f
+    lateinit var btnRetour: Button
 
     private val callback = OnMapReadyCallback { googleMap ->
         /**
@@ -61,6 +64,11 @@ class GoogleMapsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
         mapFragment?.getMapAsync(callback)
+        btnRetour = view.findViewById(R.id.btnRetourMaps)
+
+        btnRetour.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.action_googleMapsFragment_to_evenement)
+        }
     }
 
     fun adresseToLatLng(adresse: String): LatLng? {
