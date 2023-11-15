@@ -2,9 +2,7 @@ package gti.g55.eventichs_organisation.Présentation.Vue
 
 import android.content.Intent
 import android.net.Uri
-import android.os.Build.VERSION.SDK_INT
 import android.os.Bundle
-import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -31,6 +29,7 @@ class VueEvenement_detail : Fragment() {
     lateinit var textDateFin: TextView
     lateinit var textAdresse: TextView
     lateinit var textDescription: TextView
+    lateinit var imagemodifier:ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,13 +54,14 @@ class VueEvenement_detail : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val selectedÉvènement = arguments?.getParcelable<Évènement>("Évènement")
-        imagehome=view.findViewById(R.id.home)
+        imagehome=view.findViewById(R.id.btn_versdétailback)
         textViewNom = view.findViewById(R.id.nomEvent)
         versMaps=view.findViewById(R.id.verxmaps)
         textDateDebut=view.findViewById(R.id.dateDebEvent)
         textDateFin=view.findViewById(R.id.dateFinEvent)
         textAdresse=view.findViewById(R.id.adresseEvent)
         textDescription=view.findViewById(R.id.descriptionEvent)
+        imagemodifier=view.findViewById(R.id.btnvers_modifier)
 
 
         versMaps.setOnClickListener {
@@ -77,9 +77,15 @@ class VueEvenement_detail : Fragment() {
                 Toast.makeText(requireContext(), "Google Maps is not installed", Toast.LENGTH_SHORT).show()
             }
         }
-
+        val event = selectedÉvènement
+        val bundle = Bundle().apply {
+            putParcelable("Évènementmodifier", event)
+        }
         imagehome.setOnClickListener{
             Navigation.findNavController(view).navigate(R.id.action_evenement_detail_to_evenement)
+        }
+        imagemodifier.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.action_evenement_detail_to_evenement_modifier)
         }
 
         var eventNom = selectedÉvènement?.nom
