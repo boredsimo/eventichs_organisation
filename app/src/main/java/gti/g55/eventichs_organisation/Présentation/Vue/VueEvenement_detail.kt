@@ -113,6 +113,6 @@ class VueEvenement_detail : Fragment() {
     }
 
     fun goToFragment(item: ImageView, bundle:Bundle){
-        item.findNavController().navigate(R.id.action_evenement_detail_to_evenement_modifier,bundle)
+        item.findNavController().navigate(R.id.action_evenement_detail_to_vueModifierEvenement,bundle)
     }
 }

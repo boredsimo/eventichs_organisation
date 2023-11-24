@@ -50,8 +50,8 @@
             android:id="@+id/action_evenement_detail_to_evenement"
             app:destination="@id/evenement" />
         <action
-            android:id="@+id/action_evenement_detail_to_evenement_modifier"
-            app:destination="@id/evenement_modifier" />
+            android:id="@+id/action_evenement_detail_to_vueModifierEvenement"
+            app:destination="@id/vueModifierEvenement" />
     </fragment>
     <fragment
         android:id="@+id/googleMapsFragment"
@@ -59,12 +59,11 @@
         android:label="fragment_google_maps"
         tools:layout="@layout/fragment_google_maps" />
     <fragment
-        android:id="@+id/evenement_modifier"
-        android:name="gti.g55.eventichs_organisation.evenement_modifier"
-        android:label="fragment_evenement_modifier"
-        tools:layout="@layout/fragment_evenement_modifier" >
+        android:id="@+id/vueModifierEvenement"
+        android:name="gti.g55.eventichs_organisation.Présentation.Vue.VueModifierEvenement"
+        android:label="VueModifierEvenement" >
         <action
-            android:id="@+id/action_evenement_modifier_to_evenement_detail"
+            android:id="@+id/action_vueModifierEvenement_to_evenement_detail"
             app:destination="@id/evenement_detail" />
     </fragment>
 </navigation>

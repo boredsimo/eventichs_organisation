@@ -9,11 +9,19 @@ class ModèleVueEvenement( val source: SourceÉvènement) {
 
         var ListeÉvènementCourante: ArrayList<Évènement> = ArrayList()
 
-            fun RemplacerListeÉvènements(): List<Évènement>{
-                Log.e("LOG", "OBTENIRLISTE GOT CALLED")
-                var nouvelleListeEvenement = InteracteurAcquisitionÉvènement(source).obtenirNouvelleListeÉvènement()
-                ListeÉvènementCourante = nouvelleListeEvenement
+        fun RemplacerListeÉvènements(): List<Évènement>{
+            Log.e("LOG", "OBTENIRLISTE GOT CALLED")
+            var nouvelleListeEvenement = InteracteurAcquisitionÉvènement(source).obtenirNouvelleListeÉvènement()
+            ListeÉvènementCourante = nouvelleListeEvenement
 
-                return nouvelleListeEvenement
-            }
+            return nouvelleListeEvenement
+        }
+
+        fun findEvenementByID(id: Int): Évènement{
+            Log.e("LOG", "findEvenementByID GOT CALLED")
+            var nouvelleListeEvenement = InteracteurAcquisitionÉvènement(source).obtenirNouvelleListeÉvènement()
+            return nouvelleListeEvenement[id - 1]
+        }
+
+
 }
