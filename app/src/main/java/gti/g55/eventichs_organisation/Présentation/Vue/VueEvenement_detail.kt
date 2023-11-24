@@ -8,10 +8,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import gti.g55.eventichs_organisation.Domaine.Entités.Évènement
 import gti.g55.eventichs_organisation.R
 
@@ -85,7 +87,7 @@ class VueEvenement_detail : Fragment() {
             Navigation.findNavController(view).navigate(R.id.action_evenement_detail_to_evenement)
         }
         imagemodifier.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.action_evenement_detail_to_evenement_modifier)
+            goToFragment(imagemodifier,bundle)
         }
 
         var eventNom = selectedÉvènement?.nom
@@ -108,5 +110,9 @@ class VueEvenement_detail : Fragment() {
         if (eventDateDebut != null){
             textDescription.text = eventDescription
         }
+    }
+
+    fun goToFragment(item: ImageView, bundle:Bundle){
+        item.findNavController().navigate(R.id.action_evenement_detail_to_evenement_modifier,bundle)
     }
 }

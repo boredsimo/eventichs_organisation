@@ -6,12 +6,13 @@ import kotlin.random.Random
 import kotlin.random.nextInt
 
 class SourceÉvènementBidon : SourceÉvènement {
+    var listeRetour: ArrayList<Évènement> = ArrayList()
 
     override fun récupérerListeÉvènements(): List<Évènement> {
-        var listeRetour: ArrayList<Évènement> = ArrayList()
 
 
-                 listeRetour.add(
+
+        listeRetour.add(
                     Évènement(
                         1,
                         "Grève Générale Illimitée",
@@ -24,7 +25,7 @@ class SourceÉvènementBidon : SourceÉvènement {
                     )
                 )
 
-                listeRetour.add(
+        listeRetour.add(
                     Évènement(
                         2,
                         "Group de danse sensuelle dans la pluie",
@@ -37,7 +38,7 @@ class SourceÉvènementBidon : SourceÉvènement {
                     )
                 )
 
-                listeRetour.add(
+        listeRetour.add(
                     Évènement(
                         3,
                         "LIBÉRATION INCONDITIONNELLE DE LA PALESTINE",
@@ -50,7 +51,7 @@ class SourceÉvènementBidon : SourceÉvènement {
                     )
                 )
 
-                listeRetour.add(
+        listeRetour.add(
                     Évènement(
                         4,
                         "Pizza time avec Alexandros",
@@ -63,7 +64,7 @@ class SourceÉvènementBidon : SourceÉvènement {
                     )
                 )
 
-                listeRetour.add(
+        listeRetour.add(
                     Évènement(
                         5,
                         "Meatman's meat",
@@ -75,7 +76,7 @@ class SourceÉvènementBidon : SourceÉvènement {
                         1
                     )
                 )
-                listeRetour.add(
+        listeRetour.add(
                     Évènement(
                         6,
                         "Brunch avec des soldats qui ont du PTSD",
@@ -87,7 +88,7 @@ class SourceÉvènementBidon : SourceÉvènement {
                         1
                     )
                 )
-                listeRetour.add(
+        listeRetour.add(
                     Évènement(
                         7,
                         "Le pistolet de massage de Wissem",
@@ -99,7 +100,7 @@ class SourceÉvènementBidon : SourceÉvènement {
                         1
                     )
                 )
-                listeRetour.add(
+        listeRetour.add(
                     Évènement(
                         8,
                         "Joe's Bangers & Mash Grand Opening",
@@ -111,7 +112,7 @@ class SourceÉvènementBidon : SourceÉvènement {
                         1
                     )
                 )
-                listeRetour.add(
+        listeRetour.add(
                     Évènement(
                         9,
                         "SCRUM vs CRUD: Revenge of the Agiles",
