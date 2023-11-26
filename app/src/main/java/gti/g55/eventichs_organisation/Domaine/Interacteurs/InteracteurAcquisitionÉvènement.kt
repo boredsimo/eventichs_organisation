@@ -20,4 +20,9 @@ class InteracteurAcquisitionÉvènement(var source: SourceÉvènement) {
         _ListeÉvènement = nouvelleListeÉvènement as ArrayList<Évènement>
         return _ListeÉvènement
     }
+
+    @Throws(ÉvènementException::class)
+    fun creerÉvènement(evenement: Évènement){
+        source.ajouterÉvènement(evenement)
+    }
 }

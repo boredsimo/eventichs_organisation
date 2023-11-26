@@ -7,7 +7,19 @@ import kotlin.random.nextInt
 
 class SourceÉvènementBidon : SourceÉvènement {
 
+    var listeÉvènement = générerListeÉvènements()
+
     override fun récupérerListeÉvènements(): List<Évènement> {
+        return listeÉvènement
+    }
+
+    override fun ajouterÉvènement(evenement: Évènement){
+        listeÉvènement.add(evenement)
+    }
+
+
+
+    fun générerListeÉvènements(): MutableList<Évènement> {
         var listeRetour: ArrayList<Évènement> = ArrayList()
 
         while(listeRetour.size <= 10) {
@@ -79,6 +91,7 @@ class SourceÉvènementBidon : SourceÉvènement {
 
             }
         }
+
 
 
         return listeRetour

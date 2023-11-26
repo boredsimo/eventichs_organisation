@@ -6,4 +6,5 @@ interface SourceÉvènement {
 
         fun récupérerListeÉvènements(): List<Évènement>
 
+        fun ajouterÉvènement(evenement: Évènement)
 }
