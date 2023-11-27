@@ -119,6 +119,7 @@ class VueEvenement : Fragment() {
 //        afficherRecyclerView(dataSearchÉvènement)
 //    }
 
+
     fun afficherRecyclerView(dataEvenement: List<Évènement>){
         val gridLayoutManager = GridLayoutManager(requireContext(), 1)
         recyclerView.layoutManager = gridLayoutManager
