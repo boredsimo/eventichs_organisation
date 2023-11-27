@@ -6,11 +6,12 @@ import gti.g55.eventichs_organisation.Domaine.Interacteurs.InteracteurAcquisitio
 import gti.g55.eventichs_organisation.Domaine.Interacteurs.SourceÉvènement
 
 class ModèleVueEvenement( val source: SourceÉvènement) {
+
         var ListeÉvènementCourante: ArrayList<Évènement> = ArrayList()
 
-            fun ObtenirListeÉvènements(): List<Évènement>{
-                val nouvelleListeEvenement = InteracteurAcquisitionÉvènement(source).obtenirNouvelleListeÉvènement()
-                //ListeÉvènementCourante
+            fun RemplacerListeÉvènements(): List<Évènement>{
+                var nouvelleListeEvenement = InteracteurAcquisitionÉvènement(source).obtenirNouvelleListeÉvènement()
+                ListeÉvènementCourante = nouvelleListeEvenement
 
                 return nouvelleListeEvenement
             }

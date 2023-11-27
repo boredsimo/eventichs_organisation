@@ -45,8 +45,9 @@
                             android:layout_marginStart="8dp"
                             android:layout_alignParentBottom="true"
                             android:layout_marginBottom="8dp"
-                            android:background="@drawable/menu_hamburger"
+                            android:background="@android:color/transparent"
                             android:text="" />
+<!--                        android:background="@drawable/menu_hamburger"-->
 
                         <TextView
                             android:id="@+id/textView4"
@@ -62,7 +63,11 @@
                             android:layout_toEndOf="@+id/buttonVersProfil"
                             android:gravity="center"
                             android:text="Eventichs"
-                            android:textSize="32dp" />
+                            android:textColor="#000000"
+                            android:textColorHighlight="#000000"
+                            android:textColorHint="#000000"
+                            android:textSize="30sp"
+                            android:textStyle="bold|italic" />
 
                         <Button
                             android:id="@+id/bouttonVersCréer"
@@ -72,8 +77,9 @@
                             android:layout_alignParentBottom="true"
                             android:layout_marginEnd="8dp"
                             android:layout_marginBottom="8dp"
-                            android:background="@drawable/plus"
+                            android:background="@android:color/transparent"
                             android:text="" />
+<!--                        android:background="@drawable/plus"-->
 
                     </RelativeLayout>
 
