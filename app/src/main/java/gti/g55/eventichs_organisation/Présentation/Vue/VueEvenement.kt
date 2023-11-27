@@ -17,6 +17,7 @@ import gti.g55.eventichs_organisation.sourceDeDonnées.SourceÉvènementBidon
 import androidx.appcompat.widget.SearchView;
 import gti.g55.eventichs_organisation.evenementViewHolder
 
+
 /**
  * A simple [Fragment] subclass.
  * Use the [VueEvenement.newInstance] factory method to
@@ -49,7 +50,11 @@ class VueEvenement : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val vue =  inflater.inflate(R.layout.fragment_evenement, container, false)
+        return inflater.inflate(R.layout.fragment_evenement, container, false)
+    }
+
+    override fun onViewCreated(vue: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(vue, savedInstanceState)
         btnVersProfil=vue.findViewById(R.id.buttonVersProfil)
         btnVersCréerEvénement=vue.findViewById(R.id.bouttonVersCréer)
         btnVersCréerEvénement=vue.findViewById(R.id.bouttonVersCréer)
@@ -92,8 +97,6 @@ class VueEvenement : Fragment() {
         afficherRecyclerView(dataEvenement!!)
 
         _présenteur?.rafraichirListeÉvènements()
-
-        return vue
 
     }
 
