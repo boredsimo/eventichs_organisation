@@ -8,7 +8,7 @@ import gti.g55.eventichs_organisation.sourceDeDonnées.SourceÉvènementBidon
 
 class ModèleVueEvenement( val source: SourceÉvènement) {
 
-        lateinit var source2:SourceÉvènementBidon
+        //lateinit var source2:SourceÉvènementBidon
         var ListeÉvènementCourante: ArrayList<Évènement> = ArrayList()
 
         fun RemplacerListeÉvènements(): List<Évènement>{
@@ -26,10 +26,15 @@ class ModèleVueEvenement( val source: SourceÉvènement) {
         }
 
         fun remplacerElement(unEvenement:Évènement){
-            val index =source2.listeRetour.indexOfFirst { it.code==unEvenement.code }
+            val index =source.listeRetour.indexOfFirst { it.code==unEvenement.code }
             if (index != -1){
-                source2.listeRetour[index]=unEvenement
+                source.listeRetour[index]=unEvenement
             }
+            val test=source.listeRetour[index].nom
+            val test2=source.listeRetour[3].nom
+
+            Log.e("remplcer the event","$test")
+            Log.e("remplcer the event","$test2")
 
         }
 
