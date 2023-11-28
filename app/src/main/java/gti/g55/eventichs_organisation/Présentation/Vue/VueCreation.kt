@@ -13,6 +13,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Switch
 import android.widget.TextView
+import androidx.core.widget.addTextChangedListener
 import androidx.navigation.Navigation
 import gti.g55.eventichs_organisation.Présentation.Modèle.ModèleVueEvenement
 import gti.g55.eventichs_organisation.Présentation.Présenteur.PrésenteurCréation
@@ -67,6 +68,9 @@ class VueCreation : Fragment() {
             Navigation.findNavController(vue).navigate(R.id.action_creerEvenement_to_evenement)
         }
 
+        btnSubmit?.setOnClickListener {
+            _présenteur!!.ajouterÉvènement(99,fieldNomEvenement?.text.toString(), textDateDebut?.text.toString(), textDateFin?.text.toString(), fieldDescriptionEvenement?.text.toString(), fieldAddresseEvenement?.text.toString(), switchEvenementPrivé?.isChecked.toString())
+        }
 
         btnDateDebut?.setOnClickListener {
 
@@ -78,6 +82,16 @@ class VueCreation : Fragment() {
             changerDateFin()
         }
 
+        fieldNomEvenement?.addTextChangedListener {
+            checkFieldsAndEnableButton()
+        }
+        fieldAddresseEvenement?.addTextChangedListener {
+            checkFieldsAndEnableButton()
+        }
+        fieldDescriptionEvenement?.addTextChangedListener {
+            checkFieldsAndEnableButton()
+        }
+
         val modèle = ModèleVueEvenement(SourceÉvènementBidon())
         _présenteur = PrésenteurCréation(this, modèle)
 
@@ -85,10 +99,11 @@ class VueCreation : Fragment() {
         setPrésenteur(_présenteur!!)
 
         return vue
+
+
     }
 
     fun changerDateDébut() {
-        Log.e("DatePicker", "IT WAS CALLED")
         val currentDate = Calendar.getInstance()
         val DatePicker = DatePickerDialog(requireContext())
 
@@ -108,7 +123,6 @@ class VueCreation : Fragment() {
     }
 
     fun changerDateFin() {
-        Log.e("DatePicker", "IT WAS CALLED")
         val currentDate = Calendar.getInstance()
         val DatePicker = DatePickerDialog(requireContext())
 
@@ -126,5 +140,17 @@ class VueCreation : Fragment() {
         DatePicker.show()
 
     }
+
+    private fun checkFieldsAndEnableButton() {
+        val nomEvenement = fieldNomEvenement?.text?.isNotBlank() ?: false
+        val adresseEvenement = fieldAddresseEvenement?.text?.isNotBlank() ?: false
+        val descriptionEvenement = fieldDescriptionEvenement?.text?.isNotBlank() ?: false
+        val datesAreFilled = textDateDebut?.text?.isNotBlank() ?: false && textDateFin?.text?.isNotBlank() ?: false
+
+        btnSubmit?.isEnabled = nomEvenement && adresseEvenement && descriptionEvenement && datesAreFilled
+    }
+
+
+
 }
 

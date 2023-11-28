@@ -3,6 +3,7 @@ package gti.g55.eventichs_organisation.Présentation.Présenteur
 import android.app.DatePickerDialog
 import android.os.Handler
 import android.os.Message
+import android.util.Log
 import gti.g55.eventichs_organisation.Domaine.Entités.Évènement
 import gti.g55.eventichs_organisation.Domaine.Interacteurs.ÉvènementException
 import gti.g55.eventichs_organisation.Présentation.Modèle.ModèleVueEvenement
@@ -21,12 +22,11 @@ class PrésenteurCréation (private val _vue: VueCreation, private val _modèle:
 
     fun ajouterÉvènement(code: Int, nom: String, dateDebut: String, dateFin: String, description: String, addresse: String, type: String) {
 
-        filEsclave = Thread {
             var msg: Message? = null
             try {
                 Thread.sleep(0)
                 //temporaire
-                _modèle.CreerEvenement(
+                val nouvelEvenement = _modèle.CreerEvenement(
                     Évènement(
                         code,
                         nom,
@@ -38,6 +38,7 @@ class PrésenteurCréation (private val _vue: VueCreation, private val _modèle:
                         1
                     )
                 )
+                msg = handlerRéponse.obtainMessage(MSG_NOUVEL_EVENEMENT, nouvelEvenement)
             } catch (e: ÉvènementException) {
                 msg = handlerRéponse.obtainMessage(MSG_ERREUR, e)
             } catch (e: InterruptedException) {
@@ -46,10 +47,9 @@ class PrésenteurCréation (private val _vue: VueCreation, private val _modèle:
 
             handlerRéponse.sendMessage(msg!!)
         }
-        filEsclave!!.start()
-    }
 
     init {
+        Log.i("Size of evenementListe: ", _modèle.ObtenirListe().size.toString())
         handlerRéponse = object : Handler(){
             override fun handleMessage(msg: Message) {
                 super.handleMessage(msg)
