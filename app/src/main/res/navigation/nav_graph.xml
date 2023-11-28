@@ -34,7 +34,7 @@
     </fragment>
 <fragment
         android:id="@+id/creerEvenement"
-        android:name="gti.g55.eventichs_organisation.CreerEvenement"
+        android:name="gti.g55.eventichs_organisation.Présentation.Vue.VueCreation"
         android:label="fragment_creer"
         tools:layout="@layout/fragment_creer" >
     <action

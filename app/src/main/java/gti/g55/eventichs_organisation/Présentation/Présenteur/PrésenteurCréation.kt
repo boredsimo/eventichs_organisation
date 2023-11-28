@@ -49,22 +49,6 @@ class PrésenteurCréation (private val _vue: VueCreation, private val _modèle:
         filEsclave!!.start()
     }
 
-    fun changerDateDébut(date: DatePickerDialog) {
-        val currentDate = Calendar.getInstance()
-
-        date.datePicker.minDate = currentDate.timeInMillis
-
-        date.setOnDateSetListener { view, year, month, day ->
-            val selectedDate = Calendar.getInstance()
-            selectedDate.set(year, month, day)
-
-
-            _vue.changerDateDébut(SimpleDateFormat("MMMM d, yyyy", Locale.getDefault()).format(selectedDate))
-        }
-
-        date.show()
-    }
-
     init {
         handlerRéponse = object : Handler(){
             override fun handleMessage(msg: Message) {
