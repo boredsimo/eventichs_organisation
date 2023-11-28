@@ -84,8 +84,10 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:ems="10"
-                        android:inputType="text"
-                        android:text="" />
+                        android:layout_marginStart="8dp"
+                        android:inputType="textPassword"
+                        android:text=""
+                        />
                 </LinearLayout>
             </TableRow>
 
