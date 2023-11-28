@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.navigation.Navigation
 import gti.g55.eventichs_organisation.Présentation.Modèle.ModèleLogin
 import gti.g55.eventichs_organisation.Présentation.Présenteur.PrésentateurLogin
 import gti.g55.eventichs_organisation.R
@@ -58,6 +59,7 @@ class VueLogin : Fragment() {
 
         btnLogin.setOnClickListener {
             _présenteur?.emailEtMotDePasseHandler(email.text.toString(), password.text.toString())
+
         }
 
         val modèle = ModèleLogin(SourceUtilisateurBidon())
@@ -68,7 +70,7 @@ class VueLogin : Fragment() {
 
 
     fun goToNextFragment(){
-        Log.e("LOG", "all good")
+        view?.let { Navigation.findNavController(it).navigate(R.id.action_vueLogin_to_evenement) }
     }
 
     fun messageErreur(){
