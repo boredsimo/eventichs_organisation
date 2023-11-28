@@ -1,4 +1,4 @@
-package gti.g55.eventichs_organisation
+package gti.g55.eventichs_organisation.Présentation.Présenteur
 
 import android.os.Bundle
 import android.view.View
@@ -8,8 +8,9 @@ import androidx.annotation.NonNull
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import gti.g55.eventichs_organisation.Domaine.Entités.Évènement
+import gti.g55.eventichs_organisation.R
 
-class evenementViewHolder (@NonNull itemView: View) : RecyclerView.ViewHolder(itemView) {
+class EvenementViewHolder (@NonNull itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     val item: LinearLayout
     var recTitle: TextView

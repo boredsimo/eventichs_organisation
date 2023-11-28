@@ -54,5 +54,9 @@
         android:id="@+id/googleMapsFragment"
         android:name="gti.g55.eventichs_organisation.GoogleMapsFragment"
         android:label="fragment_google_maps"
-        tools:layout="@layout/fragment_google_maps" />
+        tools:layout="@layout/fragment_google_maps" >
+        <action
+            android:id="@+id/action_googleMapsFragment_to_evenement"
+            app:destination="@id/evenement" />
+    </fragment>
 </navigation>

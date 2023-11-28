@@ -51,7 +51,7 @@
                     android:layout_marginTop="16dp"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="EVENTICHS"
+                    android:text="Eventichs"
                     android:textColor="#000000"
                     android:textSize="30sp"
                     android:textStyle="bold|italic"
@@ -65,15 +65,17 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
-                <ImageView
-                    android:id="@+id/pencil"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:srcCompat="@drawable/pencil" />
+<!-- Enlever les commentaires pour faire afficher le bouton édit lorsque édit est prêt
+à implémenter -->
+<!--                <ImageView-->
+<!--                    android:id="@+id/pencil"-->
+<!--                    android:layout_width="50dp"-->
+<!--                    android:layout_height="50dp"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:layout_weight="1"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:srcCompat="@drawable/pencil" />-->
             </LinearLayout>
         </LinearLayout>
 
@@ -92,9 +94,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Nom de l'événement"
                 android:textColor="#000000"
-                android:textSize="30sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -107,17 +108,7 @@
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout9">
-
-            <ImageView
-                android:id="@+id/imageEvent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:srcCompat="@drawable/college_rosemont" />
-        </LinearLayout>
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout9"/>
 
         <LinearLayout
             android:id="@+id/linearLayout11"
@@ -136,15 +127,34 @@
                 android:background="#FFFF"
                 android:orientation="horizontal">
 
-                <ImageView
-                    android:id="@+id/calendar1"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:srcCompat="@drawable/calendar" />
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/calendar1"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center|top"
+                        android:layout_weight="1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:srcCompat="@drawable/baseline_calendar_today_24" />
+
+                    <TextView
+                        android:id="@+id/textView19"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Date Début"
+                        android:textColor="#000000"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
             </LinearLayout>
 
             <LinearLayout
@@ -159,9 +169,8 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="Date début"
                     android:textColor="#000000"
-                    android:textSize="20sp"
+                    android:textSize="10sp"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -171,15 +180,34 @@
                 android:background="#FFFF"
                 android:orientation="horizontal">
 
-                <ImageView
-                    android:id="@+id/calendar2"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:srcCompat="@drawable/calendar" />
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/calendar2"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center|top"
+                        android:layout_weight="1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:srcCompat="@drawable/baseline_calendar_today_24" />
+
+                    <TextView
+                        android:id="@+id/textView20"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:text="Date Fin"
+                        android:textColor="#000000"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
             </LinearLayout>
 
             <LinearLayout
@@ -194,9 +222,8 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="Date fin"
                     android:textColor="#000000"
-                    android:textSize="20sp"
+                    android:textSize="10sp"
                     android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>
@@ -226,7 +253,7 @@
                     android:layout_weight="1"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:srcCompat="@drawable/location" />
+                    app:srcCompat="@drawable/baseline_map_24" />
 
             </LinearLayout>
 
@@ -243,58 +270,6 @@
                     android:background="#FFFF"
                     android:gravity="center_vertical"
                     android:padding="10dp"
-                    android:text="6400 16e Avenue, Montréal, QC H1X 2S9"
-                    android:textColor="#000000"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayout13"
-            android:layout_width="0dp"
-            android:layout_height="80dp"
-            android:background="#000000"
-            android:padding="1dp"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout12">
-
-            <LinearLayout
-                android:layout_width="75dp"
-                android:layout_height="match_parent"
-                android:background="#FFFF"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/padlock"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:srcCompat="@drawable/padlock" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent">
-
-                <TextView
-                    android:id="@+id/typeEvent"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="#FFFF"
-                    android:gravity="center_vertical"
-                    android:padding="10dp"
-                    android:text="Type d'événement (privé/public)"
                     android:textColor="#000000"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -310,29 +285,13 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout13">
-
-            <LinearLayout
-                android:layout_width="75dp"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/people"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:srcCompat="@drawable/people" />
-            </LinearLayout>
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout12">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="1dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:padding="1dp">
 
                 <Button
                     android:id="@+id/verxmaps"
@@ -363,7 +322,6 @@
                 android:background="#FFFF"
                 android:clipToOutline="false"
                 android:padding="10dp"
-                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
                 android:textColor="#000000"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"

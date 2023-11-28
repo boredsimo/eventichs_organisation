@@ -9,25 +9,17 @@ import gti.g55.eventichs_organisation.R
 import gti.g55.eventichs_organisation.sourceDeDonnées.SourceÉvènementBidon
 
 class MainActivity : AppCompatActivity() {
-    private var _présenteur: PrésenteurEvenement? = null
+//    private var _présenteur: PrésenteurEvenement? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val modèle = ModèleVueEvenement(SourceÉvènementBidon())
-        val vue = VueEvenement()
-        _présenteur = PrésenteurEvenement(vue, modèle)
-
-        vue.setPrésenteur(_présenteur)
-        val ft = supportFragmentManager.beginTransaction()
-        ft.add(R.id.nav_host_fragment, vue)
-        ft.commit()
-
-
-    }
-
-    public override fun onStart() {
-        super.onStart()
-        _présenteur!!.rafraichirListeÉvènements()
-
+//        var modèle = ModèleVueEvenement(SourceÉvènementBidon())
+//        val vue  = VueEvenement()
+//        _présenteur = PrésenteurEvenement(vue, modèle)
+//
+          //vue.setPrésenteur(_présenteur!!)
+//        val ft = supportFragmentManager.beginTransaction()
+//        ft.add(R.id.nav_host_fragment, vue)
+//        ft.commit()
     }
 }
