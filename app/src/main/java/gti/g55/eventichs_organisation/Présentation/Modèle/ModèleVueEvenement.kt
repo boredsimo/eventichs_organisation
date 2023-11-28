@@ -4,9 +4,11 @@ import android.util.Log
 import gti.g55.eventichs_organisation.Domaine.Entités.Évènement
 import gti.g55.eventichs_organisation.Domaine.Interacteurs.InteracteurAcquisitionÉvènement
 import gti.g55.eventichs_organisation.Domaine.Interacteurs.SourceÉvènement
+import gti.g55.eventichs_organisation.sourceDeDonnées.SourceÉvènementBidon
 
 class ModèleVueEvenement( val source: SourceÉvènement) {
 
+        lateinit var source2:SourceÉvènementBidon
         var ListeÉvènementCourante: ArrayList<Évènement> = ArrayList()
 
         fun RemplacerListeÉvènements(): List<Évènement>{
@@ -18,10 +20,22 @@ class ModèleVueEvenement( val source: SourceÉvènement) {
         }
 
         fun findEvenementByID(id: Int): Évènement{
-            Log.e("LOG", "findEvenementByID GOT CALLED")
             var nouvelleListeEvenement = InteracteurAcquisitionÉvènement(source).obtenirNouvelleListeÉvènement()
+            Log.e("LOG", "findEvenementByID GOT CALLED $nouvelleListeEvenement")
             return nouvelleListeEvenement[id - 1]
         }
+
+        fun remplacerElement(unEvenement:Évènement){
+            val index =source2.listeRetour.indexOfFirst { it.code==unEvenement.code }
+            if (index != -1){
+                source2.listeRetour[index]=unEvenement
+            }
+
+        }
+
+
+
+
 
 
 }

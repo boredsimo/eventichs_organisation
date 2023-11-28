@@ -6,4 +6,6 @@ interface SourceÉvènement {
 
         fun récupérerListeÉvènements(): List<Évènement>
 
+        fun modifierÉvénements(Listecourante:List<Évènement>)
+
 }

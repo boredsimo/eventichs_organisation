@@ -47,8 +47,15 @@ class PrésentateurModifierEvenement(private val _vue: VueModifierEvenement, pri
     }
 
     fun saveEvenement(codeEvenement: Int?, nomEvenement: String, dateDébut: String, dateFin: String, adresse: String){
-        val unEvenement = codeEvenement?.let { _modèle.findEvenementByID(it) }
-        unEvenement?.nom?.let { Log.e("LOG", it) }
+        val unEvenement = codeEvenement?.let {   _modèle.findEvenementByID(it) }
+        unEvenement?.nom=nomEvenement
+        unEvenement?.nom?.let { Log.e("NomEvaent", it) }
+        unEvenement?.dateDebut=dateDébut
+        unEvenement?.dateFin=dateFin
+        unEvenement?.addresse=adresse
+        if (unEvenement != null) {
+            _modèle.remplacerElement(unEvenement)
+        }
     }
 
 
