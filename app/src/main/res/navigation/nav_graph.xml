@@ -49,6 +49,9 @@
         <action
             android:id="@+id/action_evenement_detail_to_evenement"
             app:destination="@id/evenement" />
+        <action
+            android:id="@+id/action_evenement_detail_to_vueModifierEvenement"
+            app:destination="@id/vueModifierEvenement" />
     </fragment>
     <fragment
         android:id="@+id/googleMapsFragment"
@@ -58,5 +61,13 @@
         <action
             android:id="@+id/action_googleMapsFragment_to_evenement"
             app:destination="@id/evenement" />
+    </fragment>
+    <fragment
+        android:id="@+id/vueModifierEvenement"
+        android:name="gti.g55.eventichs_organisation.Présentation.Vue.VueModifierEvenement"
+        android:label="VueModifierEvenement" >
+        <action
+            android:id="@+id/action_vueModifierEvenement_to_evenement_detail"
+            app:destination="@id/evenement_detail" />
     </fragment>
 </navigation>

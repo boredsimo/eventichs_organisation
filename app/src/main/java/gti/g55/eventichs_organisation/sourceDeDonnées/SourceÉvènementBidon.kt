@@ -6,25 +6,19 @@ import kotlin.random.Random
 import kotlin.random.nextInt
 
 class SourceÉvènementBidon : SourceÉvènement {
+    override var listeRetour: ArrayList<Évènement> = ArrayList()
 
     var listeÉvènement = générerListeÉvènements()
-
-    override fun récupérerListeÉvènements(): List<Évènement> {
-        return listeÉvènement
-    }
 
     override fun ajouterÉvènement(evenement: Évènement){
         listeÉvènement.add(evenement)
     }
 
+    override fun récupérerListeÉvènements(): List<Évènement> {
 
 
-    fun générerListeÉvènements(): MutableList<Évènement> {
-        var listeRetour: ArrayList<Évènement> = ArrayList()
 
-        while(listeRetour.size <= 10) {
-            when (Random.nextInt(4)) {
-                0 -> listeRetour.add(
+                 listeRetour.add(
                     Évènement(
                         1,
                         "Grève Générale Illimitée",
@@ -37,7 +31,7 @@ class SourceÉvènementBidon : SourceÉvènement {
                     )
                 )
 
-                1 -> listeRetour.add(
+                listeRetour.add(
                     Évènement(
                         2,
                         "Group de danse sensuelle dans la pluie",
@@ -50,7 +44,7 @@ class SourceÉvènementBidon : SourceÉvènement {
                     )
                 )
 
-                2 -> listeRetour.add(
+                listeRetour.add(
                     Évènement(
                         3,
                         "LIBÉRATION INCONDITIONNELLE DE LA PALESTINE",
@@ -63,7 +57,7 @@ class SourceÉvènementBidon : SourceÉvènement {
                     )
                 )
 
-                3 -> listeRetour.add(
+                listeRetour.add(
                     Évènement(
                         4,
                         "Pizza time avec Alexandros",
@@ -76,7 +70,7 @@ class SourceÉvènementBidon : SourceÉvènement {
                     )
                 )
 
-                4 -> listeRetour.add(
+                listeRetour.add(
                     Évènement(
                         5,
                         "Meatman's meat",
@@ -95,7 +89,9 @@ class SourceÉvènementBidon : SourceÉvènement {
 
 
         return listeRetour
-
     }
 
+    override fun modifierÉvénements(listCourante:List<Évènement>) {
+        TODO("Not yet implemented")
+    }
 }

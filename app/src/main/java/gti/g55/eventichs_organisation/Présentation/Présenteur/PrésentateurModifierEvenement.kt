@@ -3,12 +3,11 @@ package gti.g55.eventichs_organisation.Présentation.Présenteur
 import android.os.Handler
 import android.os.Message
 import android.util.Log
-import gti.g55.eventichs_organisation.Domaine.Entités.Évènement
 import gti.g55.eventichs_organisation.Domaine.Interacteurs.ÉvènementException
 import gti.g55.eventichs_organisation.Présentation.Modèle.ModèleVueEvenement
-import gti.g55.eventichs_organisation.Présentation.Vue.VueEvenement
+import gti.g55.eventichs_organisation.Présentation.Vue.VueModifierEvenement
 
-class PrésenteurEvenement (private val _vue: VueEvenement, private val _modèle: ModèleVueEvenement){
+class PrésentateurModifierEvenement(private val _vue: VueModifierEvenement, private val _modèle: ModèleVueEvenement) {
 
     private val handlerRéponse: Handler //idk if used
     private var filEsclave: Thread? = null
@@ -16,10 +15,6 @@ class PrésenteurEvenement (private val _vue: VueEvenement, private val _modèle
     private val MSG_ERREUR = 1
     private val MSG_ANNULER = 2
 
-    //Tiré de progcité
-    //TODO: REMOVE THESE COMMENTS BEFORE PRESENTATION
-
-    //Error-catching api interaction function. afaik the error checking is redundant (FOR NOW)
     fun rafraichirListeÉvènements(){
         //new thread
         filEsclave = Thread {
@@ -32,7 +27,7 @@ class PrésenteurEvenement (private val _vue: VueEvenement, private val _modèle
                 //If it worked, and it should, msg = 0 (success)
                 msg = handlerRéponse.obtainMessage(MSG_NOUVELLE_LISTE, nouvelleListeEvenement)
 
-            //if not,
+                //if not,
             } catch (e: ÉvènementException) {
                 msg = handlerRéponse.obtainMessage(MSG_ERREUR, e)
             } catch (e: InterruptedException) {
@@ -51,35 +46,32 @@ class PrésenteurEvenement (private val _vue: VueEvenement, private val _modèle
         }
     }
 
-    fun searchList(newText: String){
-        val dataSearchÉvènement = mutableListOf<Évènement>()
-        val listeEvenements = _modèle.ListeÉvènementCourante
-
-        Log.e("LOG", listeEvenements.size.toString())
-
-        for (évènement in _modèle.ListeÉvènementCourante) {
-            if (évènement.nom.lowercase().contains(newText.lowercase())) {
-                dataSearchÉvènement.add(évènement)
-            }
-
+    fun saveEvenement(codeEvenement: Int?, nomEvenement: String, dateDébut: String, dateFin: String, adresse: String){
+        val unEvenement = codeEvenement?.let {   _modèle.findEvenementByID(it) }
+        unEvenement?.nom=nomEvenement
+        unEvenement?.nom?.let { Log.e("NomEvaent", it) }
+        unEvenement?.dateDebut=dateDébut
+        unEvenement?.dateFin=dateFin
+        unEvenement?.addresse=adresse
+        if (unEvenement != null) {
+            _modèle.remplacerElement(unEvenement)
         }
-
-        _vue.afficherRecyclerView(dataSearchÉvènement)
     }
 
+
+
+
     init {
-        handlerRéponse = object : Handler(){
+        handlerRéponse = object : Handler() {
             override fun handleMessage(msg: Message) {
                 super.handleMessage(msg)
                 filEsclave = null
-                if(msg.what == MSG_NOUVELLE_LISTE){
-                    _vue.afficherRecyclerView(_modèle.RemplacerListeÉvènements())
+                if (msg.what == MSG_NOUVELLE_LISTE) {
+                    //_vue.afficherRecyclerView(_modèle.RemplacerListeÉvènements())
                 } else if (msg.what == MSG_ERREUR) {
                     Log.e("progcite", "Erreur d'accès à l'api", msg.obj as Throwable)
                 }
             }
         }
     }
-
-
 }
