@@ -1,5 +1,6 @@
 package gti.g55.eventichs_organisation.Domaine.Interacteurs
 
+import android.util.Log
 import gti.g55.eventichs_organisation.Domaine.Entités.Évènement
 
 class InteracteurAcquisitionÉvènement(var source: SourceÉvènement) {
@@ -23,6 +24,9 @@ class InteracteurAcquisitionÉvènement(var source: SourceÉvènement) {
 
     @Throws(ÉvènementException::class)
     fun creerÉvènement(evenement: Évènement){
+        Log.e("Size before is:", _ListeÉvènement.size.toString())
+
         source.ajouterÉvènement(evenement)
+        Log.e("Size after is:", obtenirNouvelleListeÉvènement().size.toString())
     }
 }
