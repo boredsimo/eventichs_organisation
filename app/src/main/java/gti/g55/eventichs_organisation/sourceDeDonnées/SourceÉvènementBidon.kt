@@ -8,10 +8,9 @@ import kotlin.random.nextInt
 class SourceÉvènementBidon : SourceÉvènement {
     override var listeRetour: ArrayList<Évènement> = ArrayList()
 
-    var listeÉvènement = générerListeÉvènements()
 
     override fun ajouterÉvènement(evenement: Évènement){
-        listeÉvènement.add(evenement)
+        listeRetour.add(evenement)
     }
 
     override fun récupérerListeÉvènements(): List<Évènement> {
@@ -83,15 +82,9 @@ class SourceÉvènementBidon : SourceÉvènement {
                     )
                 )
 
+                return listeRetour
+            }
+            override fun modifierÉvénements(listCourante:List<Évènement>) {
+                TODO("Not yet implemented")
             }
         }
-
-
-
-        return listeRetour
-    }
-
-    override fun modifierÉvénements(listCourante:List<Évènement>) {
-        TODO("Not yet implemented")
-    }
-}
