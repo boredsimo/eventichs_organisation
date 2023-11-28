@@ -73,8 +73,12 @@ class VueLogin : Fragment() {
         view?.let { Navigation.findNavController(it).navigate(R.id.action_vueLogin_to_evenement) }
     }
 
-    fun messageErreur(){
-        txtError.text = "ERROR"
+    fun messageErreurLogin(){
+        txtError.text = "Email ou mot de passe invalide!"
+    }
+
+    fun messageErreurNull(){
+        txtError.text = "Aucun info à été saisie!"
     }
 
 }

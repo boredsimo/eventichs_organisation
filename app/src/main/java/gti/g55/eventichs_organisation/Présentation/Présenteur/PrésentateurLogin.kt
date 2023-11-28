@@ -16,15 +16,18 @@ class PrésentateurLogin (private val _vue: VueLogin, private val _modèle: Mod�
 
 
 
-    fun emailEtMotDePasseHandler(email: String?, password: String?){
-        if (email != null && password != null){
+    fun emailEtMotDePasseHandler(email: String, password: String){
+        if (email != "" && password != ""){
             if (_modèle.verifierEmailEtMotDePasse(email, password) != null){
                 _vue.goToNextFragment()
                 return
             }
-        }
 
-        _vue.messageErreur()
+            _vue.messageErreurLogin()
+
+        } else {
+            _vue.messageErreurNull()
+        }
     }
 
 
