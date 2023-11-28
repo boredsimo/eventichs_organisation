@@ -11,16 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -28,14 +18,20 @@
                     android:layout_marginTop="12dp"
                     android:text="Eventichs"
                     android:textSize="48dp"
-                    android:gravity="center"
+                    android:gravity="top|center"
                     android:textStyle="bold"/>
-            </LinearLayout>
 
-            <LinearLayout
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="357dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:gravity="center"
+            android:layout_marginStart="20dp">
+
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_height="match_parent">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -46,10 +42,10 @@
                         android:id="@+id/textView14"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
                         android:layout_weight="1"
                         android:text="Email:"
-                        android:layout_marginStart="12dp"
-                        android:textSize="24dp"/>
+                        android:textSize="24dp" />
 
                     <EditText
                         android:id="@+id/editEmail"
@@ -60,6 +56,11 @@
                         android:inputType="text"
                         android:text="" />
                 </LinearLayout>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -70,10 +71,10 @@
                         android:id="@+id/textView15"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
                         android:layout_weight="1"
                         android:text="Mot de passe:"
-                        android:layout_marginStart="12dp"
-                        android:textSize="24dp"/>
+                        android:textSize="24dp" />
 
                     <EditText
                         android:id="@+id/editPassword"
@@ -84,10 +85,9 @@
                         android:inputType="text"
                         android:text="" />
                 </LinearLayout>
+            </TableRow>
 
-            </LinearLayout>
-
-            <FrameLayout
+            <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
@@ -95,19 +95,26 @@
                     android:id="@+id/textErrorLogin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:text=""
-                    android:textSize="32dp"
-                    android:layout_gravity="center"
-                    android:textColor="@color/red"/>
+                    android:textColor="@color/red"
+                    android:textSize="32dp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
                 <Button
                     android:id="@+id/btnLogin"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="60dp"
                     android:layout_gravity="bottom"
+                    android:layout_marginStart="10dp"
+                    android:textSize="18dp"
                     android:text="Login" />
-            </FrameLayout>
-        </LinearLayout>
+            </TableRow>
+        </TableLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
