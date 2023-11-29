@@ -1,7 +1,6 @@
 package gti.g55.eventichs_organisation.Présentation.Vue
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,6 +16,7 @@ import gti.g55.eventichs_organisation.sourceDeDonnées.SourceÉvènementBidon
 import androidx.appcompat.widget.SearchView;
 import gti.g55.eventichs_organisation.Présentation.Modèle.ModèleVueEvenement
 import gti.g55.eventichs_organisation.Présentation.Présenteur.PrésenteurEvenement
+import gti.g55.eventichs_organisation.sourceDeDonnées.SourceÉvènementAPI
 
 /**
  * A simple [Fragment] subclass.
@@ -33,9 +33,9 @@ class VueEvenement : Fragment() {
 
 
     //no data allowed :(
-    //lateinit var dataEvenement: List<Évènement>
+    lateinit var dataEvenement: List<Évènement>
     lateinit var recyclerAdapter: RecyclerViewAdapteurEvenement
-    //lateinit var unEvenement: Évènement
+    lateinit var unEvenement: Évènement
     lateinit var searchView: SearchView
 
 
@@ -79,7 +79,7 @@ class VueEvenement : Fragment() {
         }
 
 
-        val modèle = ModèleVueEvenement(SourceÉvènementBidon)
+        val modèle = ModèleVueEvenement(SourceÉvènementAPI())
         _présenteur = PrésenteurEvenement(this, modèle)
 
 

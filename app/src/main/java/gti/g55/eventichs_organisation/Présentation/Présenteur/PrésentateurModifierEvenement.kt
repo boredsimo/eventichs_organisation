@@ -3,6 +3,7 @@ package gti.g55.eventichs_organisation.Présentation.Présenteur
 import android.os.Handler
 import android.os.Message
 import android.util.Log
+import gti.g55.eventichs_organisation.Domaine.Interacteurs.InteracteurAcquisitionÉvènement
 import gti.g55.eventichs_organisation.Domaine.Interacteurs.ÉvènementException
 import gti.g55.eventichs_organisation.Présentation.Modèle.ModèleVueEvenement
 import gti.g55.eventichs_organisation.Présentation.Vue.VueModifierEvenement
@@ -46,15 +47,18 @@ class PrésentateurModifierEvenement(private val _vue: VueModifierEvenement, pri
         }
     }
 
-    fun saveEvenement(codeEvenement: Int?, nomEvenement: String, dateDébut: String, dateFin: String, adresse: String){
-        val unEvenement = codeEvenement?.let {   _modèle.findEvenementByID(it) }
-        unEvenement?.nom=nomEvenement
-        unEvenement?.nom?.let { Log.e("NomEvaent", it) }
+    fun saveEvenement(codeEvenement: Int, nomEvenement: String, dateDébut: String, dateFin: String, adresse: String){
+        Log.e("code to return: ", codeEvenement.toString())
+        val unEvenement = _modèle.findEvenementByID(codeEvenement)
+        unEvenement?.nom =nomEvenement
+//        unEvenement.nom?.let { Log.e("NomEvaent", it) }
         unEvenement?.dateDebut=dateDébut
         unEvenement?.dateFin=dateFin
         unEvenement?.addresse=adresse
         if (unEvenement != null) {
-            _modèle.remplacerElement(unEvenement)
+
+            // _modèle.remplacerElement(unEvenement)
+            _modèle.modifierElement(unEvenement)
         }
     }
 

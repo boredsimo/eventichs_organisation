@@ -10,6 +10,7 @@ interface SourceÉvènement {
 
         fun ajouterÉvènement(evenement: Évènement)
 
-        fun modifierÉvénements(Listecourante:List<Évènement>)
+        fun modifierÉvénements(evenement: Évènement)
 
+        fun findÉvènementById(id: Int): Évènement?
 }

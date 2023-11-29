@@ -6,16 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
-import androidx.navigation.findNavController
 import gti.g55.eventichs_organisation.Domaine.Entités.Évènement
 import gti.g55.eventichs_organisation.Présentation.Modèle.ModèleVueEvenement
 import gti.g55.eventichs_organisation.Présentation.Présenteur.PrésentateurModifierEvenement
 import gti.g55.eventichs_organisation.Présentation.Présenteur.PrésenteurEvenement
 import gti.g55.eventichs_organisation.R
+import gti.g55.eventichs_organisation.sourceDeDonnées.SourceÉvènementAPI
 import gti.g55.eventichs_organisation.sourceDeDonnées.SourceÉvènementBidon
 
 /**
@@ -63,17 +62,13 @@ class VueModifierEvenement : Fragment() {
 
         val selectedÉvènement = arguments?.getParcelable<Évènement>("Évènementmodifier")
 
-        val listeEvenements = SourceÉvènementBidon.listeRetour
+        val listeEvenements = SourceÉvènementBidon().listeRetour
 
         nomEvenement.text=selectedÉvènement?.nom
         dateDébut.text=selectedÉvènement?.dateDebut
         dateFin.text=selectedÉvènement?.dateFin
         Addresse.text=selectedÉvènement?.addresse
         imageversdétail.setOnClickListener {
-            val event = selectedÉvènement
-            val bundle = Bundle().apply {
-                putParcelable("Évènementmodifier", event)
-            }
             //var eventToUpdate = listeEvenements.find { it.code == selectedÉvènement?.code }
             //if (eventToUpdate != null){
                 //eventToUpdate.nom=nomEvenement.text.toString()
@@ -82,22 +77,20 @@ class VueModifierEvenement : Fragment() {
                 //eventToUpdate.addresse=Addresse.text.toString()
             //}
 
-            goToFragment(imageversdétail,bundle)
+            Navigation.findNavController(view)
+                .navigate(R.id.action_vueModifierEvenement_to_evenement_detail)
         }
 
         btnSave.setOnClickListener {
-            _présenteur!!.saveEvenement(selectedÉvènement?.code, nomEvenement.text.toString(), dateDébut.text.toString(), dateFin.text.toString(), Addresse.text.toString())
+            _présenteur!!.saveEvenement(selectedÉvènement!!.code, nomEvenement.text.toString(), dateDébut.text.toString(), dateFin.text.toString(), Addresse.text.toString())
         }
 
-        val modèle = ModèleVueEvenement(SourceÉvènementBidon)
+        val modèle = ModèleVueEvenement(SourceÉvènementAPI())
         _présenteur = PrésentateurModifierEvenement(this, modèle)
         setPrésenteur(_présenteur!!)
 
 
 
-    }
-    fun goToFragment(item: ImageView, bundle:Bundle){
-        item.findNavController().navigate(R.id.action_vueModifierEvenement_to_evenement_detail,bundle)
     }
 
 
