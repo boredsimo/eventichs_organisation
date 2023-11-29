@@ -38,18 +38,6 @@ class GoogleMapsFragment : Fragment() {
 
         // To replace to format MVP
         val sourceBidon = SourceÉvènementBidon
-        sourceBidon.récupérerListeÉvènements()
-        sourceBidon.listeRetour.add(
-            Évènement(
-            5,
-            "Meatman's meat",
-            "20 Février 2024",
-            "21 Février 2024",
-            "Savourer la viande de Meatman, des mains propres du Meatman lui-même!!",
-            "45.58810981482477, -73.64490958411083",
-            "Public",
-            1)
-        )
         val events = sourceBidon.listeRetour
 
         for(event in events){
