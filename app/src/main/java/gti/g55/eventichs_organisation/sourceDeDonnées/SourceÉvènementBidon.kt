@@ -13,6 +13,11 @@ class SourceÉvènementBidon : SourceÉvènement {
         listeRetour.add(evenement)
     }
 
+    override fun modifierÉvénements(evenement: Évènement) {
+        TODO("Not yet implemented")
+    }
+
+
     override fun récupérerListeÉvènements(): List<Évènement> {
 
 
@@ -84,7 +89,5 @@ class SourceÉvènementBidon : SourceÉvènement {
 
                 return listeRetour
             }
-            override fun modifierÉvénements(listCourante:List<Évènement>) {
-                TODO("Not yet implemented")
-            }
-        }
+
+}

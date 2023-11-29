@@ -88,8 +88,43 @@ class SourceÉvènementAPI: SourceÉvènement {
         })
     }
 
-    override fun modifierÉvénements(Listecourante: List<Évènement>) {
-        TODO("Not yet implemented")
+    override fun modifierÉvénements(evenement: Évènement) {
+        val JSON = "application/json; charset=utf-8".toMediaTypeOrNull()
+
+        val jsonObject = JSONObject()
+
+        jsonObject.put("id", evenement.code)
+        jsonObject.put("nom", evenement.nom)
+        jsonObject.put("adresse", evenement.addresse)
+        jsonObject.put("dateDebut", evenement.dateDebut)
+        jsonObject.put("dateFin", evenement.dateFin)
+        jsonObject.put("type", "public")
+        jsonObject.put("categorie", "Party")
+        jsonObject.put("description", evenement.description)
+        jsonObject.put("image", "explosion.jpg")
+        jsonObject.put("organisation", "Rosemont")
+
+        val requestBody = jsonObject.toString().toRequestBody(JSON)
+
+        val request = Request.Builder()
+            .url("http://v34l.com:8080/evenements/"+evenement.code)
+            .put(requestBody)
+            .build()
+
+        client.newCall(request).enqueue(object : Callback {
+            override fun onFailure(call: Call, e: IOException) {
+                Log.e("response", "fatal error caught")
+            }
+
+            override fun onResponse(call: Call, response: Response) {
+                if (response.isSuccessful) {
+                    Log.e("response", response.code.toString())
+                } else {
+                    Log.e("response", response.code.toString())
+                }
+            }
+        })
+
     }
 
 }

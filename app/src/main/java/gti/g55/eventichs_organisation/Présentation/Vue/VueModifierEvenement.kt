@@ -14,6 +14,7 @@ import gti.g55.eventichs_organisation.Présentation.Modèle.ModèleVueEvenement
 import gti.g55.eventichs_organisation.Présentation.Présenteur.PrésentateurModifierEvenement
 import gti.g55.eventichs_organisation.Présentation.Présenteur.PrésenteurEvenement
 import gti.g55.eventichs_organisation.R
+import gti.g55.eventichs_organisation.sourceDeDonnées.SourceÉvènementAPI
 import gti.g55.eventichs_organisation.sourceDeDonnées.SourceÉvènementBidon
 
 /**
@@ -84,7 +85,7 @@ class VueModifierEvenement : Fragment() {
             _présenteur!!.saveEvenement(selectedÉvènement?.code, nomEvenement.text.toString(), dateDébut.text.toString(), dateFin.text.toString(), Addresse.text.toString())
         }
 
-        val modèle = ModèleVueEvenement(SourceÉvènementBidon())
+        val modèle = ModèleVueEvenement(SourceÉvènementAPI())
         _présenteur = PrésentateurModifierEvenement(this, modèle)
         setPrésenteur(_présenteur!!)
 
