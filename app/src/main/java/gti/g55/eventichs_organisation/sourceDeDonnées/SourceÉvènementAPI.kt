@@ -1,6 +1,7 @@
 package gti.g55.eventichs_organisation.sourceDeDonnées
 
 import android.util.Log
+import dti.g55.chargeur.sourceDeDonnées.DécodeurJsonÉvénement
 import gti.g55.eventichs_organisation.Domaine.Entités.Évènement
 import gti.g55.eventichs_organisation.Domaine.Interacteurs.SourceÉvènement
 import okhttp3.Call
@@ -36,16 +37,12 @@ class SourceÉvènementAPI: SourceÉvènement {
                     // Handle successful response here
                     val responseData = response.body?.string()
                     Log.e("Return body", responseData.toString())
-                    // Process responseData as needed
+                    listeRetour = DécodeurJsonÉvénement.décoderJsonVersÉvénements(responseData.toString()) as ArrayList<Évènement>
                 } else {
                     // Handle unsuccessful response here
                 }
             }
         })
-
-
-
-
 
         return listeRetour
     }
