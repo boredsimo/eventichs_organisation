@@ -61,7 +61,7 @@ class VueModifierEvenement : Fragment() {
 
         val selectedÉvènement = arguments?.getParcelable<Évènement>("Évènementmodifier")
 
-        val listeEvenements = SourceÉvènementBidon().listeRetour
+        val listeEvenements = SourceÉvènementBidon.listeRetour
 
         nomEvenement.text=selectedÉvènement?.nom
         dateDébut.text=selectedÉvènement?.dateDebut
@@ -84,7 +84,7 @@ class VueModifierEvenement : Fragment() {
             _présenteur!!.saveEvenement(selectedÉvènement?.code, nomEvenement.text.toString(), dateDébut.text.toString(), dateFin.text.toString(), Addresse.text.toString())
         }
 
-        val modèle = ModèleVueEvenement(SourceÉvènementBidon())
+        val modèle = ModèleVueEvenement(SourceÉvènementBidon)
         _présenteur = PrésentateurModifierEvenement(this, modèle)
         setPrésenteur(_présenteur!!)
 

@@ -92,7 +92,7 @@ class VueCreation : Fragment() {
             checkFieldsAndEnableButton()
         }
 
-        val modèle = ModèleVueEvenement(SourceÉvènementBidon())
+        val modèle = ModèleVueEvenement(SourceÉvènementBidon)
         _présenteur = PrésenteurCréation(this, modèle)
 
 
