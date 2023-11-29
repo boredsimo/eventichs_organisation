@@ -45,4 +45,8 @@ class ModèleVueEvenement( val source: SourceÉvènement) {
                 Log.e("remplcer the event","$test2")
 
             }
+
+            fun modifierElement(unEvenement: Évènement){
+                InteracteurAcquisitionÉvènement(source).modifierÉvènement(unEvenement)
+            }
 }

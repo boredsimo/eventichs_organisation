@@ -54,7 +54,9 @@ class PrésentateurModifierEvenement(private val _vue: VueModifierEvenement, pri
         unEvenement?.dateFin=dateFin
         unEvenement?.addresse=adresse
         if (unEvenement != null) {
-            _modèle.remplacerElement(unEvenement)
+
+            // _modèle.remplacerElement(unEvenement)
+            _modèle.modifierElement(unEvenement)
         }
     }
 

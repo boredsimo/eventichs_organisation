@@ -24,9 +24,11 @@ class InteracteurAcquisitionÉvènement(var source: SourceÉvènement) {
 
     @Throws(ÉvènementException::class)
     fun creerÉvènement(evenement: Évènement){
-        Log.e("Size before is:", évènement.size.toString())
-
         source.ajouterÉvènement(evenement)
-        Log.e("Size after is:", évènement.size.toString())
+    }
+
+    @Throws(ÉvènementException::class)
+    fun modifierÉvènement(evenement: Évènement){
+        source.modifierÉvénements(evenement)
     }
 }
