@@ -77,8 +77,16 @@ class VueLogin : Fragment() {
         txtError.text = "Email ou mot de passe invalide!"
     }
 
-    fun messageErreurNull(){
-        txtError.text = "Aucun info à été saisie!"
+    fun messageErreurVideMotDePasse(){
+        txtError.text = "Aucun mot de passe à été saisie!"
+    }
+
+    fun messageErreurVideEmail(){
+        txtError.text = "Aucun email à été saisie!"
+    }
+
+    fun messageErreurVide(){
+        txtError.text = "Aucune information à été saisie!"
     }
 
 }

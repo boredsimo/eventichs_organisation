@@ -17,16 +17,24 @@ class PrésentateurLogin (private val _vue: VueLogin, private val _modèle: Mod�
 
 
     fun emailEtMotDePasseHandler(email: String, password: String){
-        if (email != "" && password != ""){
-            if (_modèle.verifierEmailEtMotDePasse(email, password) != null){
-                _vue.goToNextFragment()
-                return
-            }
+        if(email.isNullOrBlank() && password.isNullOrBlank()){
+            _vue.messageErreurVide()
+            return
+        }
 
-            _vue.messageErreurLogin()
+        if(email.isNullOrBlank()){
+            _vue.messageErreurVideMotDePasse()
+            return
+        }
 
+        if(password.isNullOrBlank()){
+            _vue.messageErreurVideEmail()
+            return
+        }
+        if(_modèle.verifierEmailEtMotDePasse(email, password) != null){
+            _vue.goToNextFragment()
         } else {
-            _vue.messageErreurNull()
+            _vue.messageErreurLogin()
         }
     }
 
