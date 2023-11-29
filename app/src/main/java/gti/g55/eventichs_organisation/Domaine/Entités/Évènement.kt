@@ -3,7 +3,7 @@ package gti.g55.eventichs_organisation.Domaine.Entités
 import android.os.Parcel
 import android.os.Parcelable
 
-class Évènement (val code: Int, val nom: String, val dateDebut: String, val dateFin: String, val description: String,val addresse:String, val type: String, val organisation_id: Int): Parcelable {
+class Évènement (val code: Int, var nom: String, var dateDebut: String, var dateFin: String, val description: String, var addresse:String, val type: String, val organisation_id: Int): Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readInt(),
         parcel.readString()!!,

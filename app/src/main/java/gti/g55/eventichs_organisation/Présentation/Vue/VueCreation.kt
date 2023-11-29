@@ -18,6 +18,7 @@ import androidx.navigation.Navigation
 import gti.g55.eventichs_organisation.Présentation.Modèle.ModèleVueEvenement
 import gti.g55.eventichs_organisation.Présentation.Présenteur.PrésenteurCréation
 import gti.g55.eventichs_organisation.Présentation.Présenteur.PrésenteurEvenement
+import gti.g55.eventichs_organisation.sourceDeDonnées.SourceÉvènementAPI
 import gti.g55.eventichs_organisation.sourceDeDonnées.SourceÉvènementBidon
 import java.text.SimpleDateFormat
 import java.util.Locale
@@ -92,7 +93,7 @@ class VueCreation : Fragment() {
             checkFieldsAndEnableButton()
         }
 
-        val modèle = ModèleVueEvenement(SourceÉvènementBidon())
+        val modèle = ModèleVueEvenement(SourceÉvènementAPI())
         _présenteur = PrésenteurCréation(this, modèle)
 
 
@@ -112,7 +113,7 @@ class VueCreation : Fragment() {
         DatePicker.setOnDateSetListener { _, year, month, day ->
             val selectedDate = Calendar.getInstance()
             selectedDate.set(year, month, day)
-            val dateString = SimpleDateFormat("MMMM d, yyyy", Locale.getDefault()).format(selectedDate.time)
+            val dateString = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(selectedDate.time)
 
             textDateDebut?.text = dateString
         }
@@ -131,7 +132,7 @@ class VueCreation : Fragment() {
         DatePicker.setOnDateSetListener { _, year, month, day ->
             val selectedDate = Calendar.getInstance()
             selectedDate.set(year, month, day)
-            val dateString = SimpleDateFormat("MMMM d, yyyy", Locale.getDefault()).format(selectedDate.time)
+            val dateString = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(selectedDate.time)
 
             textDateFin?.text = dateString
         }

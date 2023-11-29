@@ -16,6 +16,7 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import gti.g55.eventichs_organisation.Domaine.Entités.Évènement
 import gti.g55.eventichs_organisation.sourceDeDonnées.SourceÉvènementBidon
 import java.io.IOException
 
@@ -37,7 +38,7 @@ class GoogleMapsFragment : Fragment() {
 
         // To replace to format MVP
         val sourceBidon = SourceÉvènementBidon()
-        val events = sourceBidon.récupérerListeÉvènements()
+        val events = sourceBidon.listeRetour
 
         for(event in events){
             var latlng = adresseToLatLng(event.addresse)

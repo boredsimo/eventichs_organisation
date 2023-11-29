@@ -16,6 +16,7 @@ import gti.g55.eventichs_organisation.sourceDeDonnées.SourceÉvènementBidon
 import androidx.appcompat.widget.SearchView;
 import gti.g55.eventichs_organisation.Présentation.Modèle.ModèleVueEvenement
 import gti.g55.eventichs_organisation.Présentation.Présenteur.PrésenteurEvenement
+import gti.g55.eventichs_organisation.sourceDeDonnées.SourceÉvènementAPI
 
 /**
  * A simple [Fragment] subclass.
@@ -78,7 +79,7 @@ class VueEvenement : Fragment() {
         }
 
 
-        val modèle = ModèleVueEvenement(SourceÉvènementBidon())
+        val modèle = ModèleVueEvenement(SourceÉvènementAPI())
         _présenteur = PrésenteurEvenement(this, modèle)
 
 

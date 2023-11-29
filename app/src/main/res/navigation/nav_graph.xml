@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/evenement">
+    app:startDestination="@id/vueLogin">
 
     <fragment
         android:id="@+id/evenement"
@@ -49,6 +49,9 @@
         <action
             android:id="@+id/action_evenement_detail_to_evenement"
             app:destination="@id/evenement" />
+        <action
+            android:id="@+id/action_evenement_detail_to_vueModifierEvenement"
+            app:destination="@id/vueModifierEvenement" />
     </fragment>
     <fragment
         android:id="@+id/googleMapsFragment"
@@ -57,6 +60,23 @@
         tools:layout="@layout/fragment_google_maps" >
         <action
             android:id="@+id/action_googleMapsFragment_to_evenement"
+            app:destination="@id/evenement" />
+    </fragment>
+    <fragment
+        android:id="@+id/vueModifierEvenement"
+        android:name="gti.g55.eventichs_organisation.Présentation.Vue.VueModifierEvenement"
+        android:label="VueModifierEvenement" >
+        <action
+            android:id="@+id/action_vueModifierEvenement_to_evenement_detail"
+            app:destination="@id/evenement_detail" />
+    </fragment>
+    <fragment
+        android:id="@+id/vueLogin"
+        android:name="gti.g55.eventichs_organisation.Présentation.Vue.VueLogin"
+        android:label="fragment_log_in"
+        tools:layout="@layout/fragment_log_in" >
+        <action
+            android:id="@+id/action_vueLogin_to_evenement"
             app:destination="@id/evenement" />
     </fragment>
 </navigation>

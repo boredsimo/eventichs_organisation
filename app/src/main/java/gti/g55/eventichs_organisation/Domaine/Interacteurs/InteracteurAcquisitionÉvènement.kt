@@ -14,19 +14,28 @@ class InteracteurAcquisitionÉvènement(var source: SourceÉvènement) {
     @Throws(ÉvènementException::class)
     fun obtenirNouvelleListeÉvènement(): ArrayList<Évènement> {
         var nouvelleListeÉvènement = source.récupérerListeÉvènements()
-        while (nouvelleListeÉvènement == _ListeÉvènement){
-            nouvelleListeÉvènement = source.récupérerListeÉvènements()
-            break
-        }
+        //while (nouvelleListeÉvènement == _ListeÉvènement){
+            //nouvelleListeÉvènement = source.récupérerListeÉvènements()
+            //break
+        //}
         _ListeÉvènement = nouvelleListeÉvènement as ArrayList<Évènement>
         return _ListeÉvènement
     }
 
     @Throws(ÉvènementException::class)
     fun creerÉvènement(evenement: Évènement){
-        Log.e("Size before is:", obtenirNouvelleListeÉvènement().size.toString())
+        Log.e("Size before is:", _ListeÉvènement.size.toString())
 
         source.ajouterÉvènement(evenement)
-        Log.e("Size after is:", obtenirNouvelleListeÉvènement().size.toString())
+    }
+
+    @Throws(ÉvènementException::class)
+    fun modifierÉvènement(evenement: Évènement){
+        source.modifierÉvénements(evenement)
+    }
+
+    @Throws(ÉvènementException::class)
+    fun findEvenementById(id: Int): Évènement?{
+        return source.findÉvènementById(id)
     }
 }
