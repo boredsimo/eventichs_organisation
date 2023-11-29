@@ -46,7 +46,7 @@ class SourceÉvènementAPI: SourceÉvènement {
                 }
             }
         })
-
+        Thread.sleep(500)
         return listeRetour
     }
 

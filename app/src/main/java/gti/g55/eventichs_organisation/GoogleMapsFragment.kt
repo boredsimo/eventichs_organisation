@@ -37,7 +37,7 @@ class GoogleMapsFragment : Fragment() {
          */
 
         // To replace to format MVP
-        val sourceBidon = SourceÉvènementBidon
+        val sourceBidon = SourceÉvènementBidon()
         val events = sourceBidon.listeRetour
 
         for(event in events){

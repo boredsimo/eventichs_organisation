@@ -6,7 +6,7 @@ import gti.g55.eventichs_organisation.Domaine.Interacteurs.SourceÉvènement
 import kotlin.random.Random
 import kotlin.random.nextInt
 
-object SourceÉvènementBidon : SourceÉvènement {
+class SourceÉvènementBidon : SourceÉvènement {
     override var listeRetour: ArrayList<Évènement> = ArrayList()
 
     init {
