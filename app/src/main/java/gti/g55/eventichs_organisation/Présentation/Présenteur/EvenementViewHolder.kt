@@ -31,7 +31,7 @@ class EvenementViewHolder (@NonNull itemView: View) : RecyclerView.ViewHolder(it
         recHeure.text = unEvenement.dateDebut
         val event = unEvenement
         val bundle = Bundle().apply {
-            putParcelable("Évènement", event)
+            putParcelable("Évènementmodifier", event)
         }
 
         item.setOnClickListener {

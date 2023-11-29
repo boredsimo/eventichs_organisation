@@ -55,7 +55,7 @@ class VueEvenement_detail : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val selectedÉvènement = arguments?.getParcelable<Évènement>("Évènement")
+        val selectedÉvènement = arguments?.getParcelable<Évènement>("Évènementmodifier")
         imagehome=view.findViewById(R.id.btn_versdétailback)
         textViewNom = view.findViewById(R.id.nomEvent)
         versMaps=view.findViewById(R.id.verxmaps)
