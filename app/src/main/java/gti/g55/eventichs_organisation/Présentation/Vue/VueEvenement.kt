@@ -1,6 +1,7 @@
 package gti.g55.eventichs_organisation.Présentation.Vue
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -32,9 +33,9 @@ class VueEvenement : Fragment() {
 
 
     //no data allowed :(
-    lateinit var dataEvenement: List<Évènement>
+    //lateinit var dataEvenement: List<Évènement>
     lateinit var recyclerAdapter: RecyclerViewAdapteurEvenement
-    lateinit var unEvenement: Évènement
+    //lateinit var unEvenement: Évènement
     lateinit var searchView: SearchView
 
 
@@ -78,7 +79,7 @@ class VueEvenement : Fragment() {
         }
 
 
-        val modèle = ModèleVueEvenement(SourceÉvènementBidon())
+        val modèle = ModèleVueEvenement(SourceÉvènementBidon)
         _présenteur = PrésenteurEvenement(this, modèle)
 
 

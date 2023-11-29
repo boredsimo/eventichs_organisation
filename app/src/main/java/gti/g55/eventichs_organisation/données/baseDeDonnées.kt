@@ -59,7 +59,7 @@ class DatabaseHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME,
     fun creerEvenement(db: SQLiteDatabase) {
         @SuppressLint("SimpleDateFormat")
         var dateFormat = SimpleDateFormat("dd-MM-yyyy")
-        val listeEvenements = InteracteurAcquisitionÉvènement(SourceÉvènementBidon()).obtenirNouvelleListeÉvènement()
+        val listeEvenements = InteracteurAcquisitionÉvènement(SourceÉvènementBidon).obtenirNouvelleListeÉvènement()
         val INSERT_TABLE_Evenement = "INSERT INTO $TABLE_evenement ($COLUMN_nomEvenement, $COLUMN_dateDebut, $COLUMN_dateFin, $COLUMN_type, $COLUMN_description, $COLUMN_IdOrganisation)" +
                 "VALUES (e.nom, e.dateDebut, e.dateFin, e.description, e.type, e.organisation_id)"
 

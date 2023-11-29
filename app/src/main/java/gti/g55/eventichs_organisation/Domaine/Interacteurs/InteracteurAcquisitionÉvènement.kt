@@ -14,10 +14,10 @@ class InteracteurAcquisitionÉvènement(var source: SourceÉvènement) {
     @Throws(ÉvènementException::class)
     fun obtenirNouvelleListeÉvènement(): ArrayList<Évènement> {
         var nouvelleListeÉvènement = source.récupérerListeÉvènements()
-        while (nouvelleListeÉvènement == _ListeÉvènement){
-            nouvelleListeÉvènement = source.récupérerListeÉvènements()
-            break
-        }
+        //while (nouvelleListeÉvènement == _ListeÉvènement){
+            //nouvelleListeÉvènement = source.récupérerListeÉvènements()
+            //break
+        //}
         _ListeÉvènement = nouvelleListeÉvènement as ArrayList<Évènement>
         return _ListeÉvènement
     }

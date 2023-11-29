@@ -6,7 +6,7 @@ import gti.g55.eventichs_organisation.Domaine.Interacteurs.InteracteurAcquisitio
 import gti.g55.eventichs_organisation.Domaine.Interacteurs.SourceÉvènement
 import gti.g55.eventichs_organisation.sourceDeDonnées.SourceÉvènementBidon
 
-class ModèleVueEvenement( val source: SourceÉvènement) {
+class ModèleVueEvenement(val source: SourceÉvènement) {
 
         var ListeÉvènementCourante: ArrayList<Évènement> = ArrayList()
 
