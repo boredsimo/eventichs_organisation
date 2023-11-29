@@ -27,10 +27,8 @@ class ModèleVueEvenement( val source: SourceÉvènement) {
                 return InteracteurAcquisitionÉvènement(source).évènement
             }
 
-            fun findEvenementByID(id: Int): Évènement{
-                var nouvelleListeEvenement = InteracteurAcquisitionÉvènement(source).obtenirNouvelleListeÉvènement()
-                Log.e("LOG", "findEvenementByID GOT CALLED $nouvelleListeEvenement")
-                return nouvelleListeEvenement[id - 1]
+            fun findEvenementByID(id: Int): Évènement?{
+                return InteracteurAcquisitionÉvènement(source).findEvenementById(id)
             }
 
             fun remplacerElement(unEvenement:Évènement){

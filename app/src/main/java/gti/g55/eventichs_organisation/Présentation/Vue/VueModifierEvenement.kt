@@ -82,7 +82,7 @@ class VueModifierEvenement : Fragment() {
         }
 
         btnSave.setOnClickListener {
-            _présenteur!!.saveEvenement(selectedÉvènement?.code, nomEvenement.text.toString(), dateDébut.text.toString(), dateFin.text.toString(), Addresse.text.toString())
+            _présenteur!!.saveEvenement(selectedÉvènement!!.code, nomEvenement.text.toString(), dateDébut.text.toString(), dateFin.text.toString(), Addresse.text.toString())
         }
 
         val modèle = ModèleVueEvenement(SourceÉvènementAPI())

@@ -31,4 +31,9 @@ class InteracteurAcquisitionÉvènement(var source: SourceÉvènement) {
     fun modifierÉvènement(evenement: Évènement){
         source.modifierÉvénements(evenement)
     }
+
+    @Throws(ÉvènementException::class)
+    fun findEvenementById(id: Int): Évènement?{
+        return source.findÉvènementById(id)
+    }
 }

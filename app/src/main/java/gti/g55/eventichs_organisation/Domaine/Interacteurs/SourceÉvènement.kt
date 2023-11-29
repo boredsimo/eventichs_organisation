@@ -12,4 +12,5 @@ interface SourceÉvènement {
 
         fun modifierÉvénements(evenement: Évènement)
 
+        fun findÉvènementById(id: Int): Évènement?
 }

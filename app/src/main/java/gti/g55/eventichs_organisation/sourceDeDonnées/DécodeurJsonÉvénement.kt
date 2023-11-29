@@ -20,7 +20,12 @@ class DécodeurJsonÉvénement {
             return événements
         }
 
-        private fun décoderJsonVersÉvénement(reader: JsonReader): Évènement {
+        fun décoderJsonVersÉvénement(json: String): Évènement {
+            val reader = JsonReader(StringReader(json))
+            return décoderJsonVersÉvénement(reader)
+        }
+
+        fun décoderJsonVersÉvénement(reader: JsonReader): Évènement {
             var id = 0
             var nom = ""
             var adresse = ""

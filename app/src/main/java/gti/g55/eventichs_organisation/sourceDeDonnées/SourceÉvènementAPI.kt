@@ -13,6 +13,7 @@ import okhttp3.Request
 import okhttp3.RequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
 import okhttp3.Response
+import okhttp3.internal.wait
 import okio.IOException
 import org.json.JSONObject
 
@@ -125,6 +126,36 @@ class SourceÉvènementAPI: SourceÉvènement {
             }
         })
 
+    }
+
+    override fun findÉvènementById(id: Int): Évènement {
+        var request = Request.Builder()
+            .url("http://v34l.com:8080/evenements/"+id)
+            .build()
+
+        var reponse = client.newCall(request).enqueue(object: Callback{
+
+
+
+            override fun onFailure(call: Call, e: IOException) {
+                Log.e("Return listeEvenement", "Womp womp")
+            }
+
+            override fun onResponse(call: Call, response: Response) {
+
+                if (response.isSuccessful) {
+                    // Handle successful response here
+
+                    val responseData = response.body?.string()
+                    listeRetour.add(DécodeurJsonÉvénement.décoderJsonVersÉvénement(responseData.toString()))
+                } else {
+                    // Handle unsuccessful response here
+                }
+            }
+        })
+        Log.e("is it here?", "why")
+        Thread.sleep(1000)
+        return listeRetour[0]
     }
 
 }

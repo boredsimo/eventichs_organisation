@@ -17,6 +17,10 @@ class SourceÉvènementBidon : SourceÉvènement {
         TODO("Not yet implemented")
     }
 
+    override fun findÉvènementById(id: Int): Évènement {
+        TODO("Not yet implemented")
+    }
+
 
     override fun récupérerListeÉvènements(): List<Évènement> {
 
