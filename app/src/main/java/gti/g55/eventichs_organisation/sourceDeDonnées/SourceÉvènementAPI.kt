@@ -72,6 +72,7 @@ class SourceÉvènementAPI: SourceÉvènement {
 
         val request = Request.Builder()
             .url("http://v34l.com:8080/evenements")
+            .header("Authorization", "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjlBNDRET0VwQTNYMUw2bUhESG8tWiJ9.eyJpc3MiOiJodHRwczovL2Rldi14YTJmNnFjcmI3a2FwMzNuLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw2NTZkMmRiZWExOTU5OWM5MjA5YTRmMDEiLCJhdWQiOlsiaHR0cDovL2V2ZW50aWNocy5hcGkiLCJodHRwczovL2Rldi14YTJmNnFjcmI3a2FwMzNuLnVzLmF1dGgwLmNvbS91c2VyaW5mbyJdLCJpYXQiOjE3MDMxOTk5MzEsImV4cCI6MTcwMzI4NjMzMSwiYXpwIjoibFdpa3dMRzJVa01Yb0N2TG9hNHo3QUdBUldPQ1BaaXYiLCJzY29wZSI6Im9wZW5pZCBwcm9maWxlIGVtYWlsIGFkZHJlc3MgcGhvbmUiLCJndHkiOiJwYXNzd29yZCJ9.isCqhobaR7Ao1miGDRLR6We9Vkkw9pJZ2HLEXbULafD1E41PR-vKgffC2kIFwodjPsZUmUh2Y4f55DRYvRTkF9Ou7iT4HeAL8AAEktCzw6pHJSw1zj9hLrgearqERBz1CBx-GHKsM2JWuuiJLMLssOC-3OpdlbzchCe85DxquHPhk8egHDipdBaxY66EwCCghlHwejQNw2DXdcbzfS00evPgzBknaBagHR3LVXW-zt3NLJi9o_7pprEK-5V8UW6HdpRGgxRlMEZ9UkWska2fhs11kZlFN99-AxNekW2LAmdcOQm-__YYIbecILpsGa19Zq-mMsOoukk8ajDj6QCsiQ")
             .post(requestBody)
             .build()
 
@@ -96,6 +97,7 @@ class SourceÉvènementAPI: SourceÉvènement {
         val jsonObject = JSONObject()
 
         jsonObject.put("id", evenement.code)
+        Log.e("tag",evenement.code.toString())
         jsonObject.put("nom", evenement.nom)
         jsonObject.put("adresse", evenement.addresse)
         jsonObject.put("dateDebut", evenement.dateDebut)
@@ -110,6 +112,7 @@ class SourceÉvènementAPI: SourceÉvènement {
 
         val request = Request.Builder()
             .url("http://v34l.com:8080/evenements/"+evenement.code)
+            .header("Authorization", "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjlBNDRET0VwQTNYMUw2bUhESG8tWiJ9.eyJpc3MiOiJodHRwczovL2Rldi14YTJmNnFjcmI3a2FwMzNuLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw2NTZkMmRiZWExOTU5OWM5MjA5YTRmMDEiLCJhdWQiOlsiaHR0cDovL2V2ZW50aWNocy5hcGkiLCJodHRwczovL2Rldi14YTJmNnFjcmI3a2FwMzNuLnVzLmF1dGgwLmNvbS91c2VyaW5mbyJdLCJpYXQiOjE3MDMxOTk5MzEsImV4cCI6MTcwMzI4NjMzMSwiYXpwIjoibFdpa3dMRzJVa01Yb0N2TG9hNHo3QUdBUldPQ1BaaXYiLCJzY29wZSI6Im9wZW5pZCBwcm9maWxlIGVtYWlsIGFkZHJlc3MgcGhvbmUiLCJndHkiOiJwYXNzd29yZCJ9.isCqhobaR7Ao1miGDRLR6We9Vkkw9pJZ2HLEXbULafD1E41PR-vKgffC2kIFwodjPsZUmUh2Y4f55DRYvRTkF9Ou7iT4HeAL8AAEktCzw6pHJSw1zj9hLrgearqERBz1CBx-GHKsM2JWuuiJLMLssOC-3OpdlbzchCe85DxquHPhk8egHDipdBaxY66EwCCghlHwejQNw2DXdcbzfS00evPgzBknaBagHR3LVXW-zt3NLJi9o_7pprEK-5V8UW6HdpRGgxRlMEZ9UkWska2fhs11kZlFN99-AxNekW2LAmdcOQm-__YYIbecILpsGa19Zq-mMsOoukk8ajDj6QCsiQ")
             .put(requestBody)
             .build()
 
