@@ -51,7 +51,7 @@
                     android:layout_marginTop="16dp"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="Eventichs"
+                    android:text="@string/EvTitre"
                     android:textSize="30sp"
                     android:textStyle="bold|italic"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -154,7 +154,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="Date Début"
+                        android:text="@string/Ev_De_DateDébut"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
@@ -204,7 +204,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center_horizontal"
-                        android:text="Date Fin"
+                        android:text="@string/Ev_De_DateFin"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
@@ -295,7 +295,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Voir la localisation" />
+                    android:text="@string/Ev_De_Localisation" />
             </LinearLayout>
         </LinearLayout>
 

@@ -60,7 +60,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Nom de l'événement :" />
+                    android:text="@string/Mo_NomEvenement" />
 
                 <EditText
                     android:id="@+id/nomevenermt"
@@ -82,7 +82,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Date de début :" />
+                    android:text="@string/Mo_DateDebut" />
 
                 <EditText
                     android:id="@+id/dateDebut"
@@ -103,7 +103,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Date de fin :" />
+                    android:text="@string/Mo_DateFin" />
 
                 <EditText
                     android:id="@+id/datefin"
@@ -124,7 +124,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Addresse :" />
+                    android:text="@string/Mo_Address" />
 
                 <EditText
                     android:id="@+id/addresse"
@@ -145,7 +145,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Enregistrer les modifications" />
+                    android:text="@string/Mo_EnregistrerModifications" />
             </TableRow>
 
             <TableRow

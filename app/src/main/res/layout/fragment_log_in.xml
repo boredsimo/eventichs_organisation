@@ -46,7 +46,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
                         android:layout_weight="1"
-                        android:text="Email:"
+                        android:text="@string/Log_email"
                         android:textSize="24dp" />
 
                     <EditText
@@ -75,7 +75,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
                         android:layout_weight="1"
-                        android:text="Mot de passe:"
+                        android:text="@string/Log_pass"
                         android:textSize="24dp" />
 
                     <EditText
@@ -114,7 +114,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="60dp"
                     android:layout_gravity="bottom"
-                    android:text="Login"
+                    android:text="@string/Log_boutonLogin"
                     android:textSize="18dp" />
             </TableRow>
         </TableLayout>

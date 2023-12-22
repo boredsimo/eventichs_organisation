@@ -17,7 +17,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:gravity="top|center"
-            android:text="Settings"
+            android:text="@string/Reg_Titre"
             android:textSize="48dp"
             android:textStyle="bold"
             tools:layout_editor_absoluteY="12dp" />
@@ -45,8 +45,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:textSize="24dp"
-                        android:text="Changer le thème" />
+                        android:text="@string/Reg_Theme"
+                        android:textSize="24dp" />
 
                 </LinearLayout>
             </TableRow>
@@ -65,8 +65,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:textSize="24dp"
-                        android:text="Changer le language: " />
+                        android:text="@string/Reg_langue"
+                        android:textSize="24dp" />
 
                 </LinearLayout>
             </TableRow>
@@ -79,8 +79,8 @@
                     android:id="@+id/RetournerMenu"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="24dp"
-                    android:text="Retourner" />
+                    android:text="@string/Reg_Retour"
+                    android:textSize="24dp" />
             </TableRow>
         </TableLayout>
 

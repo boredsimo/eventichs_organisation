@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Eventichs_organisation</string>
+    <string name="EvTitre">Eventichs</string>
+    <string name="EvMesEvenements">My Events</string>
+    <string name="EvBarreRecherche">Search...</string>
+    <string name="Ev_De_DateDébut">Start Date</string>
+    <string name="EvBoutonCarte">Go to Maps</string>
+    <string name="Ev_De_DateFin">Ending Date</string>
+    <string name="Ev_De_Localisation">View location</string>
+    <string name="Mo_NomEvenement">Name of event :</string>
+    <string name="Mo_DateDebut">"Starting date : "</string>
+    <string name="Mo_DateFin">Ending date :</string>
+    <string name="Mo_Address">Address :</string>
+    <string name="Mo_EnregistrerModifications">Save changes</string>
+    <string name="Reg_Theme">Change theme</string>
+    <string name="Reg_langue">Change language</string>
+    <string name="Reg_Retour">Return</string>
+    <string name="Reg_Titre">Settings</string>
+    <string name="Cr_Titre">Create an event</string>
+    <string name="Cr_NomEvenement">Event name</string>
+    <string name="Cr_HintNom">Enter the name of your event</string>
+    <string name="Cr_Privé">Private event?</string>
+    <string name="Cr_Lieu">Event location</string>
+    <string name="Cr_LieuHint">Enter the address</string>
+    <string name="Cr_Description">Enter your description</string>
+    <string name="Cr_boutonChoisir">Choose</string>
+    <string name="Log_email">Email</string>
+    <string name="Log_pass">Password</string>
+    <string name="Log_boutonLogin">Login</string>
+</resources>

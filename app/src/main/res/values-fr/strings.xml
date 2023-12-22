@@ -1,11 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Eventichs_organisation</string>
-
     <string name="EvTitre">Eventichs</string>
-    <string name="EvMesEvenements">Mes événements</string>
+    <string name="EvMesEvenements">Mes Événements</string>
     <string name="EvBarreRecherche">Rechercher...</string>
     <string name="Ev_De_DateDébut">Date Début</string>
-    <string name="EvBoutonCarte">Maps</string>
+    <string name="EvBoutonCarte">Ouvrir dans Maps</string>
     <string name="Ev_De_DateFin">Date Fin</string>
     <string name="Ev_De_Localisation">Voir la localisation</string>
     <string name="Mo_NomEvenement">Nom de l\'événement :</string>
@@ -28,5 +28,4 @@
     <string name="Log_email">Courriel</string>
     <string name="Log_pass">Mot de passe</string>
     <string name="Log_boutonLogin">Authentification</string>
-
 </resources>

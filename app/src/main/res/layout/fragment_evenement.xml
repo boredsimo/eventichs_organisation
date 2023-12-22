@@ -62,7 +62,7 @@
                             android:layout_toStartOf="@+id/bouttonVersCréer"
                             android:layout_toEndOf="@+id/buttonVersProfil"
                             android:gravity="center"
-                            android:text="Eventichs"
+                            android:text="@string/EvTitre"
                             android:textSize="30sp"
                             android:textStyle="bold|italic" />
 
@@ -94,7 +94,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:paddingStart="16dp"
-                    android:text="Mes événements"
+                    android:text="@string/EvMesEvenements"
                     android:textSize="24dp" />
 
                 <Button
@@ -115,7 +115,7 @@
                     android:focusable="false"
                     app:closeIcon="@drawable/baseline_clear_24"
                     app:iconifiedByDefault="false"
-                    app:queryHint="Search..."
+                    app:queryHint="@string/EvBarreRecherche"
                     app:searchHintIcon="@null"
                     app:searchIcon="@drawable/baseline_search_24" />
 

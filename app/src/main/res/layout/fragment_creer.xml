@@ -36,7 +36,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
-                android:text="Créer un évènement"
+                android:text="@string/Cr_Titre"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -75,7 +75,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Nom de l'évènement"
+                    android:text="@string/Cr_NomEvenement"
                     android:textAlignment="center"
                     android:textAllCaps="false"
                     android:textStyle="bold" />
@@ -91,7 +91,7 @@
                         android:layout_height="48dp"
                         android:layout_weight="1"
                         android:ems="10"
-                        android:hint="Entrez le nom de l'évènement"
+                        android:hint="@string/Cr_HintNom"
                         android:inputType="text"
                         android:rotation="0"
                         android:rotationX="0"
@@ -110,7 +110,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Évènement privé?"
+                        android:text="@string/Cr_Privé"
                         android:textAlignment="textStart"
                         android:textStyle="bold" />
 
@@ -121,7 +121,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Lieu de l'évènement"
+                    android:text="@string/Cr_Lieu"
                     android:textAlignment="center"
                     android:textAllCaps="false"
                     android:textStyle="bold" />
@@ -132,7 +132,7 @@
                     android:layout_height="48dp"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:hint="Entrez une addresse, ou choisissez avec la carte"
+                    android:hint="@string/Cr_LieuHint"
                     android:inputType="text"
                     android:rotation="0"
                     android:rotationX="0"
@@ -154,7 +154,7 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:gravity="start|top"
-                    android:hint="Entrez votre description ici"
+                    android:hint="@string/Cr_Description"
                     android:inputType="textMultiLine" />
 
                 <TextView
@@ -162,7 +162,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Date de début"
+                    android:text="@string/Ev_De_DateDébut"
                     android:textAlignment="center"
                     android:textStyle="bold" />
 
@@ -177,7 +177,6 @@
                         android:layout_width="129dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="1er janvier 2023"
                         android:textAlignment="center" />
 
                     <Button
@@ -185,7 +184,7 @@
                         android:layout_width="2dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Choisir" />
+                        android:text="@string/Cr_boutonChoisir" />
                 </LinearLayout>
 
                 <TextView
@@ -193,7 +192,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Date de fin"
+                    android:text="@string/Ev_De_DateFin"
                     android:textAlignment="center"
                     android:textStyle="bold" />
 
@@ -208,7 +207,6 @@
                         android:layout_width="219dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="1er janvier 2023"
                         android:textAlignment="center" />
 
                     <Button
@@ -216,7 +214,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Choisir" />
+                        android:text="@string/Cr_boutonChoisir" />
 
                 </LinearLayout>
 
