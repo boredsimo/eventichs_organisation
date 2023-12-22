@@ -3,16 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/settingsFragment">
+    app:startDestination="@id/evenement">
 
     <fragment
         android:id="@+id/evenement"
         android:name="gti.g55.eventichs_organisation.Présentation.Vue.VueEvenement"
         android:label="fragment_evenement"
         tools:layout="@layout/fragment_evenement" >
-        <action
-            android:id="@+id/action_evenement_to_ecranProfil"
-            app:destination="@id/ecranProfil" />
         <action
             android:id="@+id/action_evenement_to_creerEvenement"
             app:destination="@id/creerEvenement" />
@@ -22,17 +19,11 @@
         <action
             android:id="@+id/action_evenement_to_googleMapsFragment"
             app:destination="@id/googleMapsFragment" />
+        <action
+            android:id="@+id/action_evenement_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
     </fragment>
     <fragment
-        android:id="@+id/ecranProfil"
-        android:name="gti.g55.eventichs_organisation.EcranProfil"
-        android:label="fragment_ecran_profil"
-        tools:layout="@layout/fragment_ecran_profil" >
-        <action
-            android:id="@+id/action_ecranProfil_to_evenement"
-            app:destination="@id/evenement" />
-    </fragment>
-<fragment
         android:id="@+id/creerEvenement"
         android:name="gti.g55.eventichs_organisation.Présentation.Vue.VueCreation"
         android:label="fragment_creer"
@@ -85,7 +76,7 @@
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" >
         <action
-            android:id="@+id/action_settingsFragment_to_vueLogin"
-            app:destination="@id/vueLogin" />
+            android:id="@+id/action_settingsFragment_to_evenement"
+            app:destination="@id/evenement" />
     </fragment>
 </navigation>

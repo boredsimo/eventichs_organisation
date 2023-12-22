@@ -7,9 +7,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.Switch
 import androidx.appcompat.app.AppCompatDelegate
-import java.util.prefs.AbstractPreferences
+import androidx.navigation.Navigation
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -25,6 +26,7 @@ class SettingsFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private lateinit var switch: Switch
     private lateinit var sharedPreferences: SharedPreferences
+    lateinit var buttonSave: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -43,6 +45,7 @@ class SettingsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         switch = view.findViewById(R.id.switch1)
+        buttonSave = view.findViewById(R.id.RetournerMenu)
         sharedPreferences = requireActivity().getPreferences(Context.MODE_PRIVATE)
 
         val savedThemeMode = sharedPreferences.getInt("theme_mode", AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
@@ -56,6 +59,10 @@ class SettingsFragment : Fragment() {
             } else {
                 saveThemeMode(AppCompatDelegate.MODE_NIGHT_YES)
             }
+        }
+
+        buttonSave.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.action_settingsFragment_to_evenement)
         }
     }
     private fun saveThemeMode(themeMode: Int) {
