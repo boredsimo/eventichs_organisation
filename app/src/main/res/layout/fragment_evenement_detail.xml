@@ -79,8 +79,9 @@
                 <!--                    app:srcCompat="@drawable/pencil" />-->
                 <ImageView
                     android:id="@+id/btnvers_modifier"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
                     android:layout_weight="1"
                     android:src="@drawable/edit2" />
             </LinearLayout>
@@ -90,7 +91,9 @@
             android:id="@+id/linearLayout9"
             android:layout_width="0dp"
             android:layout_height="60dp"
+            android:background="#000000"
             android:orientation="horizontal"
+            android:padding="1sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout8">
@@ -100,6 +103,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="#FFFFFF"
                 android:gravity="center"
                 android:textColor="#000000"
                 android:textSize="20sp"
