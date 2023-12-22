@@ -82,7 +82,7 @@
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:src="@drawable/edit2" />
+                    android:src="@drawable/edit" />
             </LinearLayout>
         </LinearLayout>
 
