@@ -40,12 +40,12 @@
 
                         <Button
                             android:id="@+id/buttonVersProfil"
-                            android:layout_width="61dp"
-                            android:layout_height="57dp"
-                            android:layout_marginStart="8dp"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
                             android:layout_alignParentBottom="true"
+                            android:layout_marginStart="8dp"
                             android:layout_marginBottom="8dp"
-                            android:background="@android:color/transparent"
+                            android:background="@drawable/settings"
                             android:text="" />
 <!--                        android:background="@drawable/menu_hamburger"-->
 
