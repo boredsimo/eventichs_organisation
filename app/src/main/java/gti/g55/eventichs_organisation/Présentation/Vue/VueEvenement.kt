@@ -68,7 +68,7 @@ class VueEvenement : Fragment() {
         searchView = requireView().findViewById(R.id.search)
 
         btnVersProfil.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.action_evenement_to_ecranProfil)
+            Navigation.findNavController(view).navigate(R.id.action_evenement_to_settingsFragment)
         }
         btnVersCréerEvénement.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.action_evenement_to_creerEvenement)

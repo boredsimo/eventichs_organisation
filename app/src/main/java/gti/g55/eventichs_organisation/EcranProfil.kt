@@ -43,7 +43,7 @@ class EcranProfil : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         btnRetourprofil=view.findViewById(R.id.bouttonRetourProfil)
         btnRetourprofil.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.action_ecranProfil_to_evenement)
+            //Navigation.findNavController(view).navigate(R.id.action_ecranProfil_to_evenement)
         }
     }
 
