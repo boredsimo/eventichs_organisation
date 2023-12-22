@@ -1,10 +1,12 @@
 package gti.g55.eventichs_organisation.Présentation.Vue
 
+import AppBD
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
@@ -37,6 +39,7 @@ class VueEvenement : Fragment() {
     lateinit var recyclerAdapter: RecyclerViewAdapteurEvenement
     lateinit var unEvenement: Évènement
     lateinit var searchView: SearchView
+    lateinit var bd: AppBD
 
 
     fun setPrésenteur(présenteurEvenement: PrésenteurEvenement){
@@ -60,6 +63,10 @@ class VueEvenement : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val modèle = ModèleVueEvenement(SourceÉvènementAPI())
+        _présenteur = PrésenteurEvenement(this, modèle)
+
         btnVersProfil=view.findViewById(R.id.buttonVersProfil)
         btnVersCréerEvénement=view.findViewById(R.id.bouttonVersCréer)
         btnVersGoogleMaps = view.findViewById(R.id.goToMaps)
@@ -79,8 +86,7 @@ class VueEvenement : Fragment() {
         }
 
 
-        val modèle = ModèleVueEvenement(SourceÉvènementAPI())
-        _présenteur = PrésenteurEvenement(this, modèle)
+
 
 
         setPrésenteur(_présenteur!!)

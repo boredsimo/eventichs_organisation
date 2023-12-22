@@ -1,7 +1,9 @@
 package gti.g55.eventichs_organisation.ui.activité
 
+import AppBD
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatDelegate
 import gti.g55.eventichs_organisation.Présentation.Modèle.ModèleVueEvenement
 import gti.g55.eventichs_organisation.Présentation.Présenteur.PrésenteurEvenement
 import gti.g55.eventichs_organisation.Présentation.Vue.VueEvenement

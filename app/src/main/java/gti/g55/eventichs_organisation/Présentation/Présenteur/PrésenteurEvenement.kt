@@ -1,8 +1,11 @@
 package gti.g55.eventichs_organisation.Présentation.Présenteur
 
+import AppBD
 import android.os.Handler
 import android.os.Message
 import android.util.Log
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.os.LocaleListCompat
 import gti.g55.eventichs_organisation.Domaine.Entités.Évènement
 import gti.g55.eventichs_organisation.Domaine.Interacteurs.ÉvènementException
 import gti.g55.eventichs_organisation.Présentation.Modèle.ModèleVueEvenement
@@ -70,8 +73,12 @@ class PrésenteurEvenement (private val _vue: VueEvenement, private val _modèle
     init {
         handlerRéponse = object : Handler(){
             override fun handleMessage(msg: Message) {
+                val bd = AppBD(_vue.requireContext())
+                AppCompatDelegate.setDefaultNightMode(bd.getThemeById(1)!!.toInt())
+                AppCompatDelegate.setApplicationLocales(LocaleListCompat.forLanguageTags(bd.getLangueParID(1)))
                 super.handleMessage(msg)
                 filEsclave = null
+
                 if(msg.what == MSG_NOUVELLE_LISTE){
                     _vue.afficherRecyclerView(_modèle.RemplacerListeÉvènements())
                 } else if (msg.what == MSG_ERREUR) {
