@@ -45,7 +45,7 @@ class SettingsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         switch = view.findViewById(R.id.switch1)
-        buttonSave = view.findViewById(R.id.buttonSaveSettings)
+        buttonSave = view.findViewById(R.id.RetournerMenu)
         sharedPreferences = requireActivity().getPreferences(Context.MODE_PRIVATE)
 
         val savedThemeMode = sharedPreferences.getInt("theme_mode", AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
