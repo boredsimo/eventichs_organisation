@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/vueLogin">
+    app:startDestination="@id/settingsFragment">
 
     <fragment
         android:id="@+id/evenement"
@@ -78,5 +78,14 @@
         <action
             android:id="@+id/action_vueLogin_to_evenement"
             app:destination="@id/evenement" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="gti.g55.eventichs_organisation.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" >
+        <action
+            android:id="@+id/action_settingsFragment_to_vueLogin"
+            app:destination="@id/vueLogin" />
     </fragment>
 </navigation>
