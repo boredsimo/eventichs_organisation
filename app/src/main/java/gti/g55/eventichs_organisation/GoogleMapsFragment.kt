@@ -17,6 +17,9 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import gti.g55.eventichs_organisation.Domaine.Entités.Évènement
+import gti.g55.eventichs_organisation.Domaine.Interacteurs.SourceÉvènement
+import gti.g55.eventichs_organisation.Présentation.Modèle.ModèleVueEvenement
+import gti.g55.eventichs_organisation.sourceDeDonnées.SourceÉvènementAPI
 import gti.g55.eventichs_organisation.sourceDeDonnées.SourceÉvènementBidon
 import java.io.IOException
 
@@ -37,8 +40,8 @@ class GoogleMapsFragment : Fragment() {
          */
 
         // To replace to format MVP
-        val sourceBidon = SourceÉvènementBidon()
-        val events = sourceBidon.listeRetour
+        val source = SourceÉvènementAPI()
+        val events = source.récupérerListeÉvènements()
 
         for(event in events){
             var latlng = adresseToLatLng(event.addresse)
