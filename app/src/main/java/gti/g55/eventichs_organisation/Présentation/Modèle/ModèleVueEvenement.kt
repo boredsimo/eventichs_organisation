@@ -45,6 +45,7 @@ class ModèleVueEvenement(val source: SourceÉvènement) {
             }
 
             fun modifierElement(unEvenement: Évènement){
+                Log.e("Code de retour pour modèle",unEvenement.code.toString())
                 InteracteurAcquisitionÉvènement(source).modifierÉvènement(unEvenement)
             }
 }
